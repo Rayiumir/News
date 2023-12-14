@@ -1,0 +1,149 @@
+@font-face {
+  font-family: Vazir;
+  src: url('../fonts/Vazir.eot');
+  src: url('../fonts/Vazir.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Vazir.eot') format('woff'),
+  url('../fonts/Vazir.ttf') format('truetype');
+  font-weight: normal;
+}
+body{
+      font-family: Vazir;
+      letter-spacing: 0;
+      text-rendering: optimizeLegibility;
+      font-weight: 300;
+      color: #212529;
+      font-size: 1rem;
+      background-color: #e5e7e4 !important;
+      line-height: 2;
+      word-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+}
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-right: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-right: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-right: 0;
+    }
+
+    #page-content-wrapper {
+       min-width: 0;
+       width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+      margin-right: -15rem;
+    }
+
+}
+#menu-toggle {
+  margin-right: 15px;
+}
+
+.list {
+    margin-top: -10px;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 0;
+}
+.list li {
+    list-style-type: none;
+    padding: 0;
+}
+.list-heading {
+    background: #FFFFFF;
+    border: none;
+    border-bottom: solid 1px #F2F2F2;
+    cursor: pointer;
+    display: block;
+    outline: none;
+    /*padding: 2em;*/
+    position: relative;
+    width: 100%;
+    text-align: right;
+}
+.list-heading:before {
+    background: #ff4d4d;
+    content: '';
+    height: 2px;
+    /*margin-right: 37px;*/
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: rotate(-90deg);
+    transition: all 0.2s ease-in-out;
+    width: 14px;
+}
+.list-heading:after {
+    background: #ff4d4d;
+    content: '';
+    height: 2px;
+    /*margin-right: 37px;*/
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 14px;
+}
+.list-heading.active:before {
+    transform: rotate(0deg);
+}
+.list-heading.active h6, .list-heading:focus h6 {
+    position: relative;
+    color: #ff8383;
+}
+.list-text {
+    background: #FFFFFF;
+    display: none;
+    overflow: hidden;
+}
+.list-heading h6 {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* صفحه اصلی */
+input.bg-search{
+    background-color: hsla(0,0%,100%,.1);
+    color: hsla(0,0%,100%,.7);
+    background-clip: padding-box;
+    border-color: hsla(0,0%,100%,.2);
+}
+p img{
+    max-width: 100%;
+}
+button a{
+    color: #fff;
+}
+.lists{
+    display: ruby;
+}
+
+
