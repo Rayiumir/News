@@ -163,7 +163,9 @@ return [
         /*
          * Modules Service Providers...
          */
-            \modules\Rayium\Home\Providers\HomeServiceProvider::class,
+        \modules\Rayium\Home\Providers\HomeServiceProvider::class,
+        \modules\Rayium\Auth\Provider\AuthServiceProvider::class,
+        \modules\Rayium\User\Provider\UserServiceProvider::class,
         /*
          * Application Service Providers...
          */
