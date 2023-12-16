@@ -4,9 +4,9 @@ namespace modules\Rayium\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class RegisterController extends Controller
+class LoginController extends Controller
 {
     public function index(){
-        return view('Auth::register');
+        return view('Auth::login');
     }
 }
