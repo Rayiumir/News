@@ -6,14 +6,29 @@
                     <i class="fa-duotone fa-sign-in fa-3x mb-2"></i>
                 </div>
                 <h1 class="text-center fs-4 fw-bold">ورود به سایت</h1>
-                <form action="" method="POST">
+                <form action="{{ route('auth.login.store') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="Input2" class="form-label">ایمیل</label>
-                        <input type="email" class="form-control rounded-5" id="Input2">
+                        <input type="email" name="email" class="form-control rounded-5 @error('email') is-invalid @enderror" id="Input2">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="Input3" class="form-label">رمز عبور</label>
-                        <input type="password" class="form-control rounded-5" id="Input3">
+                        <input type="password" name="password" class="form-control rounded-5 @error('password') is-invalid @enderror" id="Input3">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" name="privacy" class="form-check-input" id="Check1" value="1">
+                        <label class="form-check-label" for="Check1">مرا به خاطر بسپار</label>
                     </div>
                     <button type="submit" class="btn btn-primary rounded-5"><i class="fa-duotone fa-send"></i> ورود به سایت </button>
                 </form>

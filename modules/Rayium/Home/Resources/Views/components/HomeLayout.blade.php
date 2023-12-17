@@ -40,17 +40,11 @@
     @yield('styles')
 </head>
 <body>
-<div class="d-flex" id="wrapper">
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <main class="container">
-            <div class="mt-3">
-                {{$slot}}
-            </div>
-        </main>
+<main class="container">
+    <div class="mt-3">
+        {{$slot}}
     </div>
-    <!-- /#page-content-wrapper -->
-</div>
+</main>
 <!-- /#wrapper -->
 <!-- Menu Toggle Script -->
 
