@@ -42,7 +42,7 @@
                 <a href="{{ route('auth.register') }}" class="text-decoration-none text-dark">حساب کاربری ندارید؟ ساخت حساب کاربری</a>
             </div>
             <div class="col">
-                <a href="#" class="text-decoration-none text-dark">باز نشانی رمز عبور</a>
+                <a href="{{ route('auth.password.email') }}" class="text-decoration-none text-dark">باز نشانی رمز عبور</a>
             </div>
         </div>
     </section>
