@@ -1,4 +1,7 @@
 <x-Auth::HomeLayout>
+    <x-slot name="title">
+        - ورود به سایت
+    </x-slot>
     <section class="col-md-6 offset-3 mt-5">
         <div class="card border-0 rounded-4">
             <div class="card-body">
@@ -36,7 +39,7 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <a href="{{ route('auth.register') }}" class="text-decoration-none text-dark">ثبت نام نکردید؟ وارد شوید</a>
+                <a href="{{ route('auth.register') }}" class="text-decoration-none text-dark">حساب کاربری ندارید؟ ساخت حساب کاربری</a>
             </div>
             <div class="col">
                 <a href="#" class="text-decoration-none text-dark">باز نشانی رمز عبور</a>

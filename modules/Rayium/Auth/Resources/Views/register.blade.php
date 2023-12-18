@@ -1,4 +1,7 @@
 <x-Auth::HomeLayout>
+    <x-slot name="title">
+        - عضویت در سایت
+    </x-slot>
     <section class="col-md-6 offset-3 mt-5">
         <div class="card border-0 rounded-4">
             <div class="card-body">
