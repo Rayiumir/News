@@ -41,7 +41,7 @@
                 <a href="{{ route('auth.register') }}" class="text-decoration-none text-dark">حساب کاربری ندارید؟ ساخت حساب کاربری</a>
             </div>
             <div class="col">
-                <a href="{{ route('auth.login') }}" class="text-decoration-none text-dark">ورود به سایت</a>
+                <a href="{{ route('auth.login') }}" class="text-decoration-none text-dark">ورود به حساب کاربری</a>
             </div>
         </div>
     </section>

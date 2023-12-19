@@ -28,5 +28,6 @@ Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($r
 
     $router->get('password/email', [ResetController::class, 'view'])->name('auth.password.email')->middleware('guest');
     $router->post('password/send-email', [ResetController::class, 'SendEmail'])->name('auth.password.send.email')->middleware('guest');
-    $router->get('password/reset', [ResetController::class, 'reset'])->name('auth.password.reset')->middleware('guest');
+    $router->get('password/reset', [ResetController::class, 'reset'])->name('password.reset')->middleware('guest');
+    $router->post('password/reset', [ResetController::class, 'update'])->name('auth.password.update')->middleware('guest');
 });

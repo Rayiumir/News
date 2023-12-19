@@ -14,8 +14,18 @@
                     <i class="fa-duotone fa-sign-in fa-3x mb-2"></i>
                 </div>
                 <h1 class="text-center fs-4 fw-bold">تغییر رمز عبور</h1>
-                <form action="{{ route('auth.password.reset') }}" method="POST">
+                <form action="{{ route('auth.password.update') }}" method="POST">
                     @csrf
+                    <input type="hidden" name="token" value="{{$token}}">
+                    <div class="mb-3">
+                        <label for="Input1" class="form-label">ایمیل</label>
+                        <input type="email" name="email" class="form-control rounded-5 @error('email') is-invalid @enderror" id="Input1" value="{{$email}}">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <label for="Input2" class="form-label">رمز عبور</label>
                         <input type="password" name="password" class="form-control rounded-5 @error('password') is-invalid @enderror" id="Input2">
@@ -27,8 +37,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="Input3" class="form-label">رمز عبور مجدد</label>
-                        <input type="password" name="confirmed" class="form-control rounded-5 @error('password') is-invalid @enderror" id="Input3">
-                        @error('password')
+                        <input type="password" name="password_confirmation" class="form-control rounded-5 @error('password_confirmation') is-invalid @enderror" id="Input3">
+                        @error('password_confirmation')
                         <span class="invalid-feedback" role="alert">
                                  <strong>{{ $message }}</strong>
                             </span>
