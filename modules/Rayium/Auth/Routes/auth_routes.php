@@ -6,7 +6,7 @@ use modules\Rayium\Auth\Http\Controllers\RegisterController;
 use modules\Rayium\Auth\Http\Controllers\ResetController;
 use modules\Rayium\Auth\Http\Controllers\VerifyController;
 
-Route::group(['namespace' => 'Rayium\Auth'], function ($router){
+Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($router){
 
     // Register User
 
