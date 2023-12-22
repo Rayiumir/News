@@ -2,6 +2,7 @@
 
 
 use modules\Rayium\Auth\Http\Controllers\LoginController;
+use modules\Rayium\Auth\Http\Controllers\LogoutController;
 use modules\Rayium\Auth\Http\Controllers\RegisterController;
 use modules\Rayium\Auth\Http\Controllers\ResetController;
 use modules\Rayium\Auth\Http\Controllers\VerifyController;
@@ -10,13 +11,14 @@ Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($r
 
     // Register User
 
-    $router->get('/register', [RegisterController::class, 'index'])->name('auth.register');
-    $router->post('/register', [RegisterController::class, 'store'])->name('auth.register.store');
+    $router->get('register', [RegisterController::class, 'index'])->name('auth.register');
+    $router->post('register', [RegisterController::class, 'store'])->name('auth.register.store');
 
     // Login User
 
-    $router->get('/login', [LoginController::class, 'index'])->name('auth.login');
-    $router->post('/login', [LoginController::class, 'store'])->name('auth.login.store');
+    $router->get('login', [LoginController::class, 'index'])->name('login');
+    //$router->get('login', [LoginController::class, 'index'])->name('auth.login');
+    $router->post('login', [LoginController::class, 'store'])->name('auth.login.store');
 
     // Verify Email
 
@@ -30,4 +32,8 @@ Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($r
     $router->post('password/send-email', [ResetController::class, 'SendEmail'])->name('auth.password.send.email')->middleware('guest');
     $router->get('password/reset', [ResetController::class, 'reset'])->name('password.reset')->middleware('guest');
     $router->post('password/reset', [ResetController::class, 'update'])->name('auth.password.update')->middleware('guest');
+
+    // Logout
+
+    $router->get('logout', [LogoutController::class])->name('auth.logout')->middleware('auth');
 });
