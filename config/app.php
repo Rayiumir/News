@@ -166,6 +166,7 @@ return [
         \modules\Rayium\Home\Providers\HomeServiceProvider::class,
         \modules\Rayium\Auth\Provider\AuthServiceProvider::class,
         \modules\Rayium\User\Provider\UserServiceProvider::class,
+        \modules\Rayium\Admin\Provider\AdminServiceProvider::class,
         /*
          * Application Service Providers...
          */
