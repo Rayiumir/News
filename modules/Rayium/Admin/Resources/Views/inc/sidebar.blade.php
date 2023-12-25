@@ -3,9 +3,12 @@
     <div class="sidebar-heading text-center">میزکار ارکیده</div>
     <div style="width: 250px">
         <div class="p-3">
-            <div class="d-grid gap-2">
+            <div class="text-center">
+                <a href="{{ route('auth.logout') }}" type="button" class="btn btn-danger rounded-5 btn-sm"><i class="fa-duotone fa-sign-out"></i> خروج</a>
             </div>
+            <div class="d-grid gap-2">
 
+            </div>
             <details class="js-list mt-2 mb-2">
                 <summary class="title js-title"> مقالات <span class="icon"></span></summary>
                 <div class="content js-content">

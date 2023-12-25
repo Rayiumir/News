@@ -1,3 +1,3 @@
 <x-Admin::AdminLayout>
     تست
-</x-Admin::AdminLayout>>
+</x-Admin::AdminLayout>

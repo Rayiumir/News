@@ -35,5 +35,5 @@ Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($r
 
     // Logout
 
-    $router->get('logout', [LogoutController::class])->name('auth.logout')->middleware('auth');
+    $router->get('logout', [LogoutController::class, 'logout'])->name('auth.logout')->middleware('auth');
 });

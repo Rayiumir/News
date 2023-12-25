@@ -3,15 +3,14 @@
 namespace modules\Rayium\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class LogoutController extends Controller
 {
-    public function __invoke(): RedirectResponse
+    public function logout()
     {
         Auth::logout();
-        return view('Home::index');
+        return to_route('login');
     }
 
 
