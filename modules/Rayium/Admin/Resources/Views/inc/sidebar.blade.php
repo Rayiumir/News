@@ -7,7 +7,9 @@
                 <a href="{{ route('auth.logout') }}" type="button" class="btn btn-danger rounded-5 btn-sm"><i class="fa-duotone fa-sign-out"></i> خروج</a>
             </div>
             <div class="d-grid gap-2">
-
+                @foreach(config('AdminConfig.menus') as $row)
+                    <a href="{{$row['url']}}" type="button" class="btn btn-light mt-3 mb-2"><i class="fa-duotone {{$row['icon']}}"></i> {{$row['title']}} </a>
+                @endforeach
             </div>
             <details class="js-list mt-2 mb-2">
                 <summary class="title js-title"> مقالات <span class="icon"></span></summary>
