@@ -35,24 +35,43 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $this->service->store($request);
-        return view('User::index');
+
+        $notification = array(
+            'message' => 'کاربر جدید با موفقیت ایجاد شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('users.index')->with($notification);
     }
 
     public function edit($id)
     {
         $user = $this->repo->findById($id);
+
         return view('User::edit', compact('user'));
     }
 
     public function update(UserUpdateRequest $request, $id)
     {
         $this->service->update($request, $id);
-        return to_route('users.index');
+
+        $notification = array(
+            'message' => 'کاربر با موفقیت ویرایش شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('users.index')->with($notification);
     }
 
     public function destroy($id)
     {
         $this->repo->delete($id);
-        return to_route('users.index');
+
+        $notification = array(
+            'message' => 'کاربر با موفقیت حذف شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('users.index')->with($notification);
     }
 }

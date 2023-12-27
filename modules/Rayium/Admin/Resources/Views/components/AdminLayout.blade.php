@@ -17,26 +17,38 @@
     <script src="{{asset('js/ckeditor.js')}}"></script>
     <script>
         @if(Session::has('message'))
-        var type = "{{ Session::get('alert-type','info') }}"
-        switch(type){
-            case 'info':
-                toastr.info(" {{ Session::get('message') }} ");
-                break;
+            toastr.options =
+            {
+                "progressBar" : true
+            }
+        toastr.success("{{ session('message') }}");
+        @endif
 
-            case 'success':
-                toastr.success(" {{ Session::get('message') }} ");
-                break;
+            @if(Session::has('error'))
+            toastr.options =
+            {
+                "progressBar" : true
+            }
+        toastr.error("{{ session('error') }}");
+        @endif
 
-            case 'warning':
-                toastr.warning(" {{ Session::get('message') }} ");
-                break;
+            @if(Session::has('info'))
+            toastr.options =
+            {
+                "progressBar" : true
+            }
+        toastr.info("{{ session('info') }}");
+        @endif
 
-            case 'error':
-                toastr.error(" {{ Session::get('message') }} ");
-                break;
-        }
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "progressBar" : true
+            }
+        toastr.warning("{{ session('warning') }}");
         @endif
     </script>
+
     @yield('styles')
 </head>
 <body>

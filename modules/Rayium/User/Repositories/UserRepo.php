@@ -9,7 +9,7 @@ class UserRepo
     public function index()
     {
         return User::query()->latest()->paginate(10);
-     }
+    }
 
     public function findById($id)
     {
