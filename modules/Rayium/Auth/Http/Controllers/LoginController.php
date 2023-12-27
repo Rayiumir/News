@@ -4,7 +4,7 @@ namespace modules\Rayium\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use modules\Rayium\Auth\Http\Requests\UsersRequest;
+use modules\Rayium\Auth\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -12,7 +12,7 @@ class LoginController extends Controller
         return view('Auth::login');
     }
 
-    public function store(UsersRequest $request){
+    public function store(LoginRequest $request){
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             return to_route('home.index');
