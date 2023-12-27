@@ -3,6 +3,7 @@
 namespace modules\Rayium\User\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,4 +45,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public function getCreateAtShamsi()
+    {
+        return new Verta($this->created_at);
+    }
 }

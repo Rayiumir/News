@@ -27,7 +27,7 @@
                             <span class="badge bg-danger"><i class="fa-duotone fa-xmark"></i> تایید نشده </span>
                         @endif
                     </td>
-                    <td>{{$row->created_at}}</td>
+                    <td>{{$row->getCreateAtShamsi()}}</td>
                     <td>
                         <button type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-edit"></i> ویرایش </button>
                         <button type="button" class="btn btn-danger btn-sm"><i class="fa-duotone fa-trash"></i> حذف </button>
