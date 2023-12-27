@@ -28,17 +28,15 @@
                 </ul>
                 <div class="d-flex">
                     @if (Route::has('login'))
-                        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                            @auth
-                                <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">میزکار</a>
-                            @else
-                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">ورود</a>
+                        @auth
+                            <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">میزکار</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-light rounded-5"><i class="fa-duotone fa-sign-in"></i> ورود </a>
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">عضویت</a>
-                                @endif
-                            @endauth
-                        </div>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="btn btn-primary rounded-5"><i class="fa-duotone fa-user-plus"></i> عضویت </a>
+                            @endif
+                        @endauth
                     @endif
                 </div>
             </div>
