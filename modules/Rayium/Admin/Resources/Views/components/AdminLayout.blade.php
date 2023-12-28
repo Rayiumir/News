@@ -9,47 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/all.css')}}">
     <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin/style.css')}}">
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script>
-{{--    <script src="{{asset('js/all.js')}}"></script>--}}
-    <script src="{{asset('js/toastr.min.js')}}"></script>
-    <script src="{{asset('js/ckeditor.js')}}"></script>
-    <script>
-        @if(Session::has('message'))
-            toastr.options =
-            {
-                "progressBar" : true
-            }
-        toastr.success("{{ session('message') }}");
-        @endif
-
-            @if(Session::has('error'))
-            toastr.options =
-            {
-                "progressBar" : true
-            }
-        toastr.error("{{ session('error') }}");
-        @endif
-
-            @if(Session::has('info'))
-            toastr.options =
-            {
-                "progressBar" : true
-            }
-        toastr.info("{{ session('info') }}");
-        @endif
-
-            @if(Session::has('warning'))
-            toastr.options =
-            {
-                "progressBar" : true
-            }
-        toastr.warning("{{ session('warning') }}");
-        @endif
-    </script>
-
-    @yield('styles')
+    {{ $styles ?? '' }}
 </head>
 <body>
 <div class="d-flex" id="wrapper">
@@ -67,11 +27,49 @@
 </div>
 <!-- /#wrapper -->
 <!-- Menu Toggle Script -->
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/toastr.min.js')}}"></script>
+<script src="{{asset('js/ckeditor.js')}}"></script>
 <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+</script>
+<script>
+    @if(Session::has('message'))
+        toastr.options =
+        {
+            "progressBar" : true
+        }
+    toastr.success("{{ session('message') }}");
+    @endif
+
+        @if(Session::has('error'))
+        toastr.options =
+        {
+            "progressBar" : true
+        }
+    toastr.error("{{ session('error') }}");
+    @endif
+
+        @if(Session::has('info'))
+        toastr.options =
+        {
+            "progressBar" : true
+        }
+    toastr.info("{{ session('info') }}");
+    @endif
+
+        @if(Session::has('warning'))
+        toastr.options =
+        {
+            "progressBar" : true
+        }
+    toastr.warning("{{ session('warning') }}");
+    @endif
 </script>
 {{ $scripts ?? '' }}
 </body>
