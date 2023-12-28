@@ -3,10 +3,8 @@
 namespace modules\Rayium\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use modules\Rayium\User\Http\Requests\UserRequest;
 use modules\Rayium\User\Http\Requests\UserUpdateRequest;
-use modules\Rayium\User\Models\User;
 use modules\Rayium\User\Repositories\UserRepo;
 use modules\Rayium\User\Services\UserService;
 
