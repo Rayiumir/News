@@ -1,4 +1,7 @@
 <x-Admin::AdminLayout>
+    <x-slot name="title">
+        - ایجاد کاربر
+    </x-slot>
     <div class="col-md-6 offset-3">
         <div class="card rounded-4">
             <h1 class="fs-4 fw-bold text-center mt-3"><i class="fa-duotone fa-user-plus"></i> ایجاد کاربر </h1>
