@@ -1,13 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 
-use modules\Rayium\Auth\Http\Controllers\LoginController;
-use modules\Rayium\Auth\Http\Controllers\LogoutController;
-use modules\Rayium\Auth\Http\Controllers\RegisterController;
-use modules\Rayium\Auth\Http\Controllers\ResetController;
-use modules\Rayium\Auth\Http\Controllers\VerifyController;
-
-Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($router){
+Route::group(['namespace' => 'modules\Rayium\Auth\Http\Controllers', 'middleware' => 'web'], function ($router){
 
     // Register User
 
@@ -35,5 +30,5 @@ Route::group(['namespace' => 'Rayium\Auth', 'middleware' => 'web'], function ($r
 
     // Logout
 
-    $router->get('logout', [LogoutController::class, 'logout'])->name('auth.logout')->middleware('auth');
+    $router->get('logout', LogoutController::class)->name('auth.logout')->middleware('auth');
 });
