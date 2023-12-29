@@ -10,7 +10,6 @@
             <th scope="col">نام و نام خانوادگی</th>
             <th scope="col">ایمیل</th>
             <th scope="col">وضعیت تایید ایمیل</th>
-            <th scope="col">وضعیت کاربر</th>
             <th scope="col">تاریخ عضویت</th>
             <th scope="col">عملیات</th>
         </tr>
@@ -21,13 +20,6 @@
                     <th scope="row">{{$row->id}}</th>
                     <td>{{$row->name}}</td>
                     <td>{{$row->email}}</td>
-                    <td>
-                        @if( !empty($row->email_verified_at))
-                            <span class="badge bg-success"><i class="fa-duotone fa-check"></i> تایید شده </span>
-                        @else
-                            <span class="badge bg-danger"><i class="fa-duotone fa-xmark"></i> تایید نشده </span>
-                        @endif
-                    </td>
                     <td class="text-center">
                         @if(Cache::has('is_online' . $row->id))
                             <span class="text-success"><i class="fas fa-circle"></i> آنلاین</span>

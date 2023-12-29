@@ -4,5 +4,6 @@ return [
     'menus' => [
         'admin' => [],
         'users' => [],
+        'category' => [],
     ],
 ];
