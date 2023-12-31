@@ -3,13 +3,14 @@
 namespace modules\Rayium\Admin\Provider;
 
 use Closure;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AdminServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../Routes/admin_routes.php');
+        Route::middleware('web')->group(__DIR__ . '/../Routes/admin_routes.php');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'Admin');
         $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'AdminConfig');
     }

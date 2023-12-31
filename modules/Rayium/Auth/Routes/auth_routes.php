@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => 'web'], function ($router){
+Route::group([], function ($router){
 
     // Register User
 
