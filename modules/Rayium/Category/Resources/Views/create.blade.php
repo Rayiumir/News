@@ -51,7 +51,8 @@
                     <div class="mb-3">
                         <label for="Input5" class="form-label">زیر دسته (اجباری نیست)</label>
                         <select type="text" name="parent_id" class="form-select rounded-5 @error('parent_id') is-invalid @enderror" id="Input5">
-                            @foreach($categoryies as $row)
+                            <option value="">--</option>
+                            @foreach($category as $row)
                                 <option value="{{$row->id}}">{{$row->title}}</option>
                             @endforeach
                         </select>
