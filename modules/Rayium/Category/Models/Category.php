@@ -2,6 +2,7 @@
 
 namespace modules\Rayium\Category\Models;
 
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use modules\Rayium\User\Models\User;
@@ -22,8 +23,9 @@ class Category extends Model
 
     public const STATUS_ACTIVE = 'active';
     public const STATUS_INACTIVE = 'inactive';
+    public const STATUS_PENDING = 'pending';
 
-    public static array $statuses = [self::STATUS_ACTIVE, self::STATUS_INACTIVE];
+    public static array $statuses = [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_PENDING];
 
     public function user()
     {
@@ -38,5 +40,10 @@ class Category extends Model
     public function subCategories()
     {
         return $this->hasMany(__CLASS__, 'parent_id');
+    }
+
+    public function getCreateAtShamsi()
+    {
+        return new Verta($this->created_at);
     }
 }
