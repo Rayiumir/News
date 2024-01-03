@@ -39,8 +39,9 @@
                     <div class="mb-3">
                         <label for="Input4" class="form-label">وضعیت دسته بندی</label>
                         <select type="text" name="status" class="form-select rounded-5 @error('status') is-invalid @enderror" id="Input4">
+                            <option value="">انتخاب کنید ...</option>
                             @foreach(\modules\Rayium\Category\Models\Category::$statuses as $row)
-                                <option @if($category->status === $row) selected @endif value="{{$row}}">{{$row}}</option>
+                                <option @if($category->status === $row) selected @endif value="{{$row}}">@lang($row)</option>
                             @endforeach
                         </select>
                         @error('status')
@@ -52,6 +53,7 @@
                     <div class="mb-3">
                         <label for="Input5" class="form-label">زیر دسته (اجباری نیست)</label>
                         <select type="text" name="parent_id" class="form-select rounded-5 @error('parent_id') is-invalid @enderror" id="Input5">
+                            <option value="">انتخاب کنید ...</option>
                             @foreach($categories as $row)
                                 <option @if($category->parent_id === $row->id) selected @endif value="{{$row->id}}">{{$row->title}}</option>
                             @endforeach
