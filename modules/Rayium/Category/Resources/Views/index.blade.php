@@ -20,8 +20,8 @@
             <tr>
                 <th scope="row">{{$row->id}}</th>
                 <td>{{$row->title}}</td>
-                <td>{{$row->status}}</td>
-                <td>{{$row->parent_id}}</td>
+                <td>@lang($row->status)</td>
+                <td>{{$row->getParent()}}</td>
                 <td>{{$row->user->name}}</td>
                 <td>{{$row->getCreateAtShamsi()}}</td>
                 <td>

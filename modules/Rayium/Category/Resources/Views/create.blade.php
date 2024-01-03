@@ -39,7 +39,7 @@
                         <label for="Input4" class="form-label">وضعیت دسته بندی</label>
                         <select type="text" name="status" class="form-select rounded-5 @error('status') is-invalid @enderror" id="Input4">
                             @foreach(\modules\Rayium\Category\Models\Category::$statuses as $row)
-                                <option value="{{$row}}">{{$row}}</option>
+                                <option value="{{$row}}">@lang($row)</option>
                             @endforeach
                         </select>
                         @error('status')

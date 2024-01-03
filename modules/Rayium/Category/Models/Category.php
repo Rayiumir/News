@@ -46,4 +46,11 @@ class Category extends Model
     {
         return new Verta($this->created_at);
     }
+
+    public function getParent()
+    {
+        if(is_null($this->parent_id)) return 'ندارد';
+
+        return $this->parentCategory->title;
+    }
 }

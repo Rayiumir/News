@@ -2,15 +2,17 @@
 
 namespace modules\Rayium\Category\Provider;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class CategoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../Routes/category_routes.php');
+        Route::middleware('web')->group(__DIR__ . '/../Routes/category_routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'Category');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../Resources/Lang');
     }
 
     public function boot()
