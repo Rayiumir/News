@@ -12,7 +12,7 @@
             <th scope="col">زیر دسته</th>
             <th scope="col">کاربر</th>
             <th scope="col">تاریخ ساخت</th>
-            <th scope="col">عملیات</th>
+            <th scope="col" class="text-center">عملیات</th>
         </tr>
         </thead>
         <tbody>
@@ -24,10 +24,20 @@
                 <td>{{$row->getParent()}}</td>
                 <td>{{$row->user->name}}</td>
                 <td>{{$row->getCreateAtShamsi()}}</td>
-                <td>
+                <td class="text-center">
                     <a href="{{ route('category.edit', $row->id) }}" type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-edit"></i> ویرایش </a>
-                    <button type="button" class="btn btn-danger btn-sm" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i> حذف </button>
-                    <form id="trash-{{$row->id}}" action="{{ route('category.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
+
+                    <form id="status-{{$row->id}}" action="{{ route('categories.status', $row->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="button" class="btn btn-warning btn-sm" onclick="event.preventDefault();document.getElementById('status-{{$row->id}}').submit()"><i class="fa-duotone fa-arrows-rotate"></i> تغییر وضعیت </button>
+                    </form>
+
+                    <form id="trash-{{$row->id}}" action="{{ route('category.destroy', $row->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-danger btn-sm" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i> حذف </button>
+                    </form>
                 </td>
             </tr>
         @endforeach

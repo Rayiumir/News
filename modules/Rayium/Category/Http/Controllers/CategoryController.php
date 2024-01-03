@@ -72,4 +72,17 @@ class CategoryController extends Controller
 
         return to_route('category.index')->with($notification);
     }
+
+    public function changeStatus($id)
+    {
+        $category = $this->repo->findById($id);
+        $this->repo->changeStatus($category);
+
+        $notification = array(
+            'message' => 'وضعیت دسته با موفقیت تغییر کرد.',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
+    }
 }

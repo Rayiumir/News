@@ -30,4 +30,13 @@ class CategoryRepo
     {
         return Category::query();
     }
+
+    public function changeStatus($category)
+    {
+        if ($category->status === Category::STATUS_ACTIVE){
+            return $category->update(['status' => Category::STATUS_INACTIVE]);
+        }
+
+        return $category->update(['status' => Category::STATUS_ACTIVE]);
+    }
 }
