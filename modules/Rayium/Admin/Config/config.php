@@ -5,5 +5,6 @@ return [
         'admin' => [],
         'users' => [],
         'category' => [],
+        'role' => [],
     ],
 ];

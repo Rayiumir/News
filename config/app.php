@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Modules Service Providers...
          */
@@ -168,6 +168,7 @@ return [
         \modules\Rayium\User\Provider\UserServiceProvider::class,
         \modules\Rayium\Admin\Provider\AdminServiceProvider::class,
         \modules\Rayium\Category\Provider\CategoryServiceProvider::class,
+        \modules\Rayium\Role\Providers\RoleServiceProvider::class,
         /*
          * Application Service Providers...
          */
