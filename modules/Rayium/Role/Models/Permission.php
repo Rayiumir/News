@@ -10,6 +10,7 @@ class Permission extends PermissionSpatie
     PUBLIC CONST PERMISSION_USERS = 'permission users';
     PUBLIC CONST PERMISSION_CATEGORIES = 'permission categories';
     PUBLIC CONST PERMISSION_ROLES = 'permission roles';
+
     public static array $permissions = [
         self::PERMISSION_SUPER_ADMIN,
         self::PERMISSION_ADMIN,

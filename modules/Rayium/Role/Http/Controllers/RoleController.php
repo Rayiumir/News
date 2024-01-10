@@ -54,11 +54,10 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(PermissionRepo $permissionRepo, $id)
     {
         $role = $this->repo->findById($id);
         $permissions = $permissionRepo->all();
-
         return view('Role::edit', compact('permissions', 'role'));
     }
 

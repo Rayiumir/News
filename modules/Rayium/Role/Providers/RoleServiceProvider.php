@@ -14,6 +14,7 @@ class RoleServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'Role');
         Route::middleware('web')->group(__DIR__ . '/../Routes/role_routes.php');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../Resources/Lang');
 
         DatabaseSeeder::$seeders[] = PermissionSeeder::class;
     }
