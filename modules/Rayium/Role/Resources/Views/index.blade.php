@@ -1,6 +1,6 @@
 <x-Admin::AdminLayout>
     <x-slot name="title">
-        - لیست دسته بندی
+        - لیست دسترسی ها
     </x-slot>
     <a href="{{ route('roles.create') }}" type="button" class="btn btn-primary"><i class="fa-duotone fa-plus"></i> ایجاد دسترسی </a>
     <table class="table table-striped mt-3">

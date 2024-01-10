@@ -1,6 +1,6 @@
 <x-Admin::AdminLayout>
     <x-slot name="title">
-        - ایجاد کاربر
+        - ویرایش دسترسی
     </x-slot>
     <div class="col-md-6 offset-3">
         <div class="card rounded-4">

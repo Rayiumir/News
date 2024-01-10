@@ -72,4 +72,17 @@ class UserController extends Controller
 
         return to_route('users.index')->with($notification);
     }
+
+    public function addRole()
+    {
+        return view('User::addRole');
+    }
+
+    public function storeRole()
+    {
+    }
+
+    public function removeRole()
+    {
+    }
 }

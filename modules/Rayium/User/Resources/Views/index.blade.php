@@ -9,6 +9,7 @@
             <th scope="col">#</th>
             <th scope="col">نام و نام خانوادگی</th>
             <th scope="col">ایمیل</th>
+            <th scope="col">دسترسی ها</th>
             <th scope="col">وضعیت تایید ایمیل</th>
             <th scope="col">تاریخ عضویت</th>
             <th scope="col">عملیات</th>
@@ -21,6 +22,13 @@
                     <td>{{$row->name}}</td>
                     <td>{{$row->email}}</td>
                     <td>
+                        @foreach($row->roles as $rows)
+                            <ul>
+                                <li>{{$rows->name}}</li>
+                            </ul>
+                        @endforeach
+                    </td>
+                    <td>
                         @if( !empty($row->email_verified_at))
                             <span class="badge bg-success"><i class="fa-duotone fa-check"></i> تایید شده </span>
                         @else
@@ -30,6 +38,7 @@
                     <td>{{$row->getCreateAtShamsi()}}</td>
                     <td>
                         <a href="{{ route('users.edit', $row->id) }}" type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-edit"></i> ویرایش </a>
+                        <a href="{{ route('users.add.roles', $row->id) }}" type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-lock"></i> افزودن دسترسی </a>
                         <button type="button" class="btn btn-danger btn-sm" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i> حذف </button>
                         <form id="trash-{{$row->id}}" action="{{ route('users.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
                     </td>
