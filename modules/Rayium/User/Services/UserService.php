@@ -2,8 +2,6 @@
 
 namespace modules\Rayium\User\Services;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use modules\Rayium\User\Models\User;
 
 class UserService
@@ -27,5 +25,13 @@ class UserService
         ]);
     }
 
+    public function AddRole($role, $user)
+    {
+        return $user->assignRole($role);
+    }
 
+    public function deleteRole($user, $role)
+    {
+        return $user->removeRole($role);
+    }
 }

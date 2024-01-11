@@ -22,11 +22,15 @@
                     <td>{{$row->name}}</td>
                     <td>{{$row->email}}</td>
                     <td>
-                        @foreach($row->roles as $rows)
-                            <ul>
-                                <li>{{$rows->name}}</li>
-                            </ul>
-                        @endforeach
+                        <ul style="list-style: none;">
+                            @foreach($row->roles as $rows)
+                                <li>
+                                    <span class="badge bg-secondary">{{$rows->name}}</span>
+                                    <span class="badge bg-danger" onclick="event.preventDefault();document.getElementById('trash-{{$rows->id}}').submit()" title="حذف"><i class="fa-duotone fa-minus-circle"></i></span>
+                                </li>
+                                <form id="trash-{{$rows->id}}" action="{{ route('users.remove.roles', ['userId' => $row->id, 'roleId' => $rows->id]) }}" method="POST">@csrf @method('DELETE')</form>
+                            @endforeach
+                        </ul>
                     </td>
                     <td>
                         @if( !empty($row->email_verified_at))

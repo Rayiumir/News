@@ -3,6 +3,8 @@
 namespace modules\Rayium\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use modules\Rayium\Role\Repositories\RoleRepo;
+use modules\Rayium\User\Http\Requests\AddRoleRequest;
 use modules\Rayium\User\Http\Requests\UserRequest;
 use modules\Rayium\User\Http\Requests\UserUpdateRequest;
 use modules\Rayium\User\Repositories\UserRepo;
@@ -73,16 +75,36 @@ class UserController extends Controller
         return to_route('users.index')->with($notification);
     }
 
-    public function addRole()
+    public function addRole($user_id, RoleRepo $roleRepo)
     {
-        return view('User::addRole');
+        $roles = $roleRepo->index()->get();
+        return view('User::addRole', compact('user_id', 'roles'));
     }
 
-    public function storeRole()
+    public function storeRole(AddRoleRequest $request, $userId)
     {
+        $user = $this->repo->findById($userId);
+        $this->service->AddRole($request->role, $user);
+
+        $notification = array(
+            'message' => 'دسترسی به کاربر با موفقیت افزوده شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('users.index')->with($notification);
     }
 
-    public function removeRole()
+    public function removeRole($userId, $roleId, RoleRepo $roleRepo)
     {
+        $user = $this->repo->findById($userId);
+        $role = $roleRepo->findById($roleId);
+        $this->service->deleteRole($user, $role->name);
+
+        $notification = array(
+            'message' => 'دسترسی کاربر با موفقیت حذف شد.',
+            'alert-type' => 'success'
+        );
+
+        return to_route('users.index')->with($notification);
     }
 }
