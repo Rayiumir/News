@@ -7,6 +7,7 @@ use modules\Rayium\Role\Repositories\RoleRepo;
 use modules\Rayium\User\Http\Requests\AddRoleRequest;
 use modules\Rayium\User\Http\Requests\UserRequest;
 use modules\Rayium\User\Http\Requests\UserUpdateRequest;
+use modules\Rayium\User\Models\User;
 use modules\Rayium\User\Repositories\UserRepo;
 use modules\Rayium\User\Services\UserService;
 
@@ -23,17 +24,20 @@ class UserController extends Controller
 
     public function index()
     {
+        $this->authorize('index', User::class);
         $users = $this->repo->index();
         return view('User::index', compact('users'));
     }
 
     public function create()
     {
+        $this->authorize('index', User::class);
         return view('User::create');
     }
 
     public function store(UserRequest $request)
     {
+        $this->authorize('index', User::class);
         $this->service->store($request);
 
         $notification = array(
@@ -46,6 +50,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('index', User::class);
         $user = $this->repo->findById($id);
 
         return view('User::edit', compact('user'));
@@ -53,6 +58,7 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, $id)
     {
+        $this->authorize('index', User::class);
         $this->service->update($request, $id);
 
         $notification = array(
@@ -65,6 +71,7 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('index', User::class);
         $this->repo->delete($id);
 
         $notification = array(
@@ -77,12 +84,14 @@ class UserController extends Controller
 
     public function addRole($user_id, RoleRepo $roleRepo)
     {
+        $this->authorize('index', User::class);
         $roles = $roleRepo->index()->get();
         return view('User::addRole', compact('user_id', 'roles'));
     }
 
     public function storeRole(AddRoleRequest $request, $userId)
     {
+        $this->authorize('index', User::class);
         $user = $this->repo->findById($userId);
         $this->service->AddRole($request->role, $user);
 
@@ -96,6 +105,7 @@ class UserController extends Controller
 
     public function removeRole($userId, $roleId, RoleRepo $roleRepo)
     {
+        $this->authorize('index', User::class);
         $user = $this->repo->findById($userId);
         $role = $roleRepo->findById($roleId);
         $this->service->deleteRole($user, $role->name);

@@ -4,6 +4,7 @@ namespace modules\Rayium\Category\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use modules\Rayium\Category\Http\Requests\CategoryRequest;
+use modules\Rayium\Category\Models\Category;
 use modules\Rayium\Category\Repositories\CategoryRepo;
 use modules\Rayium\Category\Services\CategoryService;
 
@@ -20,18 +21,21 @@ class CategoryController extends Controller
 
     public function index()
     {
+        $this->authorize('index', Category::class);
         $categories = $this->repo->index()->paginate(10);
         return view('Category::index', compact('categories'));
     }
 
     public function create()
     {
+        $this->authorize('index', Category::class);
         $category = $this->repo->index()->get();
         return view('Category::create', compact('category'));
     }
 
     public function store(CategoryRequest $request)
     {
+        $this->authorize('index', Category::class);
         $this->service->store($request);
 
         $notification = array(
@@ -44,6 +48,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('index', Category::class);
         $category = $this->repo->findById($id);
         $categories = $this->repo->index()->where('id', '!==', $category->id)->get();
         return view('Category::edit', compact(['category', 'categories']));
@@ -51,6 +56,7 @@ class CategoryController extends Controller
 
     public function update(CategoryRequest $request, $id)
     {
+        $this->authorize('index', Category::class);
         $this->service->update($request, $id);
 
         $notification = array(
@@ -63,6 +69,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('index', Category::class);
         $this->repo->delete($id);
 
         $notification = array(
@@ -75,6 +82,7 @@ class CategoryController extends Controller
 
     public function changeStatus($id)
     {
+        $this->authorize('index', Category::class);
         $category = $this->repo->findById($id);
         $this->repo->changeStatus($category);
 

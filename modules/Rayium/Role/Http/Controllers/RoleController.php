@@ -4,6 +4,7 @@ namespace modules\Rayium\Role\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use modules\Rayium\Role\Http\Requests\RoleRequest;
+use modules\Rayium\Role\Models\Role;
 use modules\Rayium\Role\Repositories\PermissionRepo;
 use modules\Rayium\Role\Repositories\RoleRepo;
 use modules\Rayium\Role\Services\RoleService;
@@ -24,6 +25,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->authorize('index', Role::class);
         $roles = $this->repo->index()->paginate(10);
         return view('Role::index', compact('roles'));
     }
@@ -33,6 +35,7 @@ class RoleController extends Controller
      */
     public function create(PermissionRepo $permissionRepo)
     {
+        $this->authorize('index', Role::class);
         $permissions = $permissionRepo->all();
         return view('Role::create', compact('permissions'));
     }
@@ -42,6 +45,7 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
+        $this->authorize('index', Role::class);
         $this->service->store($request);
 
         $notification = array(
@@ -56,6 +60,7 @@ class RoleController extends Controller
      */
     public function edit(PermissionRepo $permissionRepo, $id)
     {
+        $this->authorize('index', Role::class);
         $role = $this->repo->findById($id);
         $permissions = $permissionRepo->all();
         return view('Role::edit', compact('permissions', 'role'));
@@ -66,6 +71,7 @@ class RoleController extends Controller
      */
     public function update(RoleRequest $request, $id)
     {
+        $this->authorize('index', Role::class);
         $this->service->update($request, $id);
 
         $notification = array(
@@ -81,6 +87,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('index', Role::class);
         $this->repo->delete($id);
 
         $notification = array(

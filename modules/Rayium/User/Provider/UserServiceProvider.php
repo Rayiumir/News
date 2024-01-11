@@ -2,7 +2,10 @@
 
 namespace modules\Rayium\User\Provider;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use modules\Rayium\User\Models\User;
+use modules\Rayium\User\Policies\UserPolicy;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -11,6 +14,7 @@ class UserServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'User');
         $this->loadRoutesFrom(__DIR__ . '/../Routes/user_routes.php');
+        Gate::policy(User::class, UserPolicy::class);
     }
 
     public function boot()

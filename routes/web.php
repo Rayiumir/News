@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+
+Route::get('/error', function (){
+    auth()->user()->givePermissionTo(\modules\Rayium\Role\Models\Permission::PERMISSION_USERS);
+});
