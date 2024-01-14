@@ -19,7 +19,7 @@ class AdminPolicy
 
     public function index(User $user)
     {
-        if($user->hasPermissionTo(Permission::PERMISSION_ADMIN))
+        if($user->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN))
         {
             return true;
         }

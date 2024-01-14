@@ -29,12 +29,19 @@
                 <div class="d-flex">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">میزکار</a>
+                            <div class="btn-group me-3">
+                                <button type="button" class="btn btn-success dropdown-toggle rounded-4" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-light fa-list"></i> منو کاربری
+                                </button>
+                                <ul class="dropdown-menu rounded-4">
+                                    <li><a class="dropdown-item" href="{{ route('admin.index') }}">میزکار مدیر کل</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('auth.logout') }}">خروج</a></li>
+                                </ul>
+                            </div>
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-light rounded-5"><i class="fa-duotone fa-sign-in"></i> ورود </a>
-
+                            <a href="{{ route('login') }}" class="btn btn-primary me-3 rounded-4"><i class="fa-light fa-sign-in"></i> ورود </a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-primary rounded-5"><i class="fa-duotone fa-user-plus"></i> عضویت </a>
+                                <a href="{{ route('auth.register') }}" class="btn btn-primary me-3 rounded-4"><i class="fa-light fa-user-plus"></i> عضویت </a>
                             @endif
                         @endauth
                     @endif
