@@ -169,6 +169,7 @@ return [
         \modules\Rayium\Admin\Provider\AdminServiceProvider::class,
         \modules\Rayium\Category\Provider\CategoryServiceProvider::class,
         \modules\Rayium\Role\Providers\RoleServiceProvider::class,
+        \modules\Rayium\Post\Providers\PostServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -3,5 +3,6 @@
     "permission admin": "دسترسی ادمین",
     "permission users": "دسترسی کاربران",
     "permission categories": "دسترسی دسته بندی",
-    "permission roles": "دسترسی مقام ها"
+    "permission roles": "دسترسی مقام ها",
+    "permission posts": "دسترسی نوشته ها"
 }
