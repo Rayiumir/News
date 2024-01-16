@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('CASCADE');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('CASCADE');
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
+            $table->string('time_to_read');
+            $table->string('imageName');
+            $table->string('imagePath');
+            $table->string('score')->default(0);
+            $table->longText('body');
+            $table->enum('status', \modules\Rayium\Post\Models\Post::$statuses);
+            $table->enum('type', \modules\Rayium\Post\Models\Post::$types)->default(\modules\Rayium\Post\Models\Post::TYPE_NORMAL);
             $table->timestamps();
         });
     }
