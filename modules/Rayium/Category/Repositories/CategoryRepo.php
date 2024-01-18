@@ -39,4 +39,9 @@ class CategoryRepo
 
         return $category->update(['status' => Category::STATUS_ACTIVE]);
     }
+
+    public function getActiveCategories()
+    {
+        return $this->query()->where('status', Category::STATUS_ACTIVE)->latest();
+    }
 }

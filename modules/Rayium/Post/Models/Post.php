@@ -6,11 +6,27 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use modules\Rayium\Category\Models\Category;
+use modules\Rayium\User\Models\User;
 use Overtrue\LaravelLike\Traits\Likeable;
 
 class Post extends Model implements Viewable
 {
     use HasFactory, InteractsWithViews, Likeable;
+
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'title',
+        'slug',
+        'time_to_read',
+        'imageName',
+        'imagePath',
+        'score',
+        'body',
+        'status',
+        'type'
+    ];
 
     public const STATUS_ACTIVE = 'active';
     public const STATUS_INACTIVE = 'inactive';
@@ -22,6 +38,14 @@ class Post extends Model implements Viewable
     public const TYPE_NORMAL = 'normal';
     public static array $types = [self::TYPE_VIP, self::TYPE_NORMAL];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 
 }

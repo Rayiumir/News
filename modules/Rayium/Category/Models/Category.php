@@ -5,6 +5,7 @@ namespace modules\Rayium\Category\Models;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use modules\Rayium\Post\Models\Post;
 use modules\Rayium\User\Models\User;
 
 class Category extends Model
@@ -50,7 +51,11 @@ class Category extends Model
     public function getParent()
     {
         if(is_null($this->parent_id)) return 'ندارد';
-
         return $this->parentCategory->title;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

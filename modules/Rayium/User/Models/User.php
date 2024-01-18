@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use modules\Rayium\Category\Models\Category;
+use modules\Rayium\Post\Models\Post;
 use Overtrue\LaravelLike\Traits\Liker;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -56,5 +57,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function categories()
     {
         return $this->hasMany(Category::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
