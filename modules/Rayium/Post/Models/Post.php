@@ -4,6 +4,7 @@ namespace modules\Rayium\Post\Models;
 
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use modules\Rayium\Category\Models\Category;
@@ -48,4 +49,8 @@ class Post extends Model implements Viewable
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function getCreateAtShamsi()
+    {
+        return new Verta($this->created_at);
+    }
 }

@@ -116,7 +116,7 @@ class PostController extends Controller
     }
 
     /**
-     * @param array|\Illuminate\Http\UploadedFile|null $file
+     * @param $file
      * @param $post
      * @return array
      */
