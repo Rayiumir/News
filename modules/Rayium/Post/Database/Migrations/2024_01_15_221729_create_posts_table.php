@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('time_to_read');
             $table->string('imageName');
             $table->string('imagePath');
+            $table->string('keywords')->nullable();
+            $table->text('description')->nullable();
             $table->string('score')->default(0);
             $table->longText('body');
             $table->enum('status', \modules\Rayium\Post\Models\Post::$statuses);
