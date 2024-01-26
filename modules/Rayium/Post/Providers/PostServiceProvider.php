@@ -14,6 +14,7 @@ class PostServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'Post');
         $this->loadRoutesFrom(__DIR__ . '/../Routes/post_routes.php');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../Resources/Lang');
         Gate::policy(Post::class, PostPolicy::class);
     }
 

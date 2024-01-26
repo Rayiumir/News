@@ -18,6 +18,8 @@ class PostService
             'imageName' => $imageName,
             'imagePath' =>$imagePath,
             'score' => $request->score,
+            'keywords' => $request->keywords,
+            'description' => $request->description,
             'body' => $request->body,
             'status' => $request->status,
             'type' => $request->type
@@ -34,6 +36,8 @@ class PostService
             'imageName' => $imageName,
             'imagePath' =>$imagePath,
             'score' => $request->score,
+            'keywords' => $request->keywords,
+            'description' => $request->description,
             'body' => $request->body,
             'status' => $request->status,
             'type' => $request->type

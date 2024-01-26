@@ -23,6 +23,8 @@ class Post extends Model implements Viewable
         'time_to_read',
         'imageName',
         'imagePath',
+        'keywords',
+        'description',
         'score',
         'body',
         'status',
