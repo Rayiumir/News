@@ -37,7 +37,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="Input4" class="form-label">وضعیت نوشته</label>
                             <select type="text" name="status" class="form-select rounded-5 @error('status') is-invalid @enderror" id="Input4">
                                 <option value="">انتخاب کنید ...</option>
@@ -51,7 +51,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="Input5" class="form-label">نوع نوشته</label>
                             <select type="text" name="type" class="form-select rounded-5 @error('type') is-invalid @enderror" id="Input5">
                                 <option value="">انتخاب کنید ...</option>
@@ -65,7 +65,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="Input6" class="form-label">دسته بندی</label>
                             <select type="text" name="category_id" class="form-select rounded-5 @error('category_id') is-invalid @enderror" id="Input6">
                                 <option value="">انتخاب کنید ...</option>
@@ -79,10 +79,42 @@
                             </span>
                             @enderror
                         </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Input7" class="form-label">امتیاز</label>
+                            <select name="score" class="form-select rounded-5 @error('score') is-invalid @enderror" id="Input7">
+                                <option value="">انتخاب کنید ...</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+
+                            </select>
+                            @error('score')
+                            <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="Input8" class="form-label">زمان مطالعه</label>
+                            <input type="text" name="time_to_read" class="form-control rounded-5 @error('time_to_read') is-invalid @enderror" id="Input8">
+                            @error('time_to_read')
+                            <span class="invalid-feedback" role="alert">
+                                 <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="Input7" class="form-label">متن</label>
-                        <textarea rows="3" name="body" class="form-control rounded-4 @error('body') is-invalid @enderror" id="Input7"></textarea>
+                        <label for="Input9" class="form-label">متن</label>
+                        <textarea rows="3" name="body" class="form-control rounded-4 @error('body') is-invalid @enderror" id="Input9"></textarea>
                         @error('body')
                             <span class="invalid-feedback" role="alert">
                                  <strong>{{ $message }}</strong>
@@ -90,8 +122,8 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="Input8" class="form-label">تصاویر شاخص</label>
-                        <input type="file" name="image" class="form-control rounded-5 @error('image') is-invalid @enderror" id="Input8">
+                        <label for="Input10" class="form-label">تصاویر شاخص</label>
+                        <input type="file" name="image" class="form-control rounded-5 @error('image') is-invalid @enderror" id="Input10">
                         @error('image')
                         <span class="invalid-feedback" role="alert">
                                  <strong>{{ $message }}</strong>

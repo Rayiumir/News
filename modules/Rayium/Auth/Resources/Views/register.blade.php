@@ -44,7 +44,7 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <a href="{{ route('auth.login') }}" class="text-decoration-none text-dark">قبلا ثبت نام کردید؟ وارد شوید</a>
+                <a href="{{ route('login') }}" class="text-decoration-none text-dark">قبلا ثبت نام کردید؟ وارد شوید</a>
             </div>
         </div>
     </section>

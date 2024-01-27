@@ -50,19 +50,32 @@ class PostService
         return preg_replace('/\s+/', '-', $url);
     }
 
-    public function uploadImage($file)
+    public function uploadImage($file): array
     {
-        $name = time() . '.' . $file->getClientOriginalExtention();
+        $name = time() . '.' . $file->getClientOriginalExtension();
 
         Storage::disk('public')->putFileAs('images', $file, $name);
 
-        $path = asset('storage/' . $name);
+        $path = asset('storage/images/' . $name);
 
         return [$path, $name];
     }
 
     public function deleteImage($post)
     {
-        //
+        if (Storage::disk('public')->exists('images/' . $post->imageName)) {
+            return Storage::disk('public')->delete('images/' . $post->imageName);
+        }
+
+        return null;
+    }
+
+    public function changeStatus($post)
+    {
+        if ($post->status === Post::STATUS_ACTIVE) {
+            return $post->update(['status' => Post::STATUS_INACTIVE]);
+        }
+
+        return $post->update(['status' => Post::STATUS_ACTIVE]);
     }
 }

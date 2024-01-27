@@ -23,14 +23,12 @@
             @foreach($posts as $row)
             <tr>
                 <th scope="row">{{$row->id}}</th>
-                <td><img src="{{$row->getImage()}}" style="width: 80px;"></td>
+                <td><img src="{{asset('storage/images/' . $row->imagePath)}}" style="width: 80px;"></td>
                 <td>{{$row->title}}</td>
                 <td>
-                    @if( !empty($row->status))
-                        <span class="badge bg-success"><i class="fa-duotone fa-check"></i> @lang($row->status) </span>
-                    @else
-                        <span class="badge bg-danger"><i class="fa-duotone fa-xmark"></i> @lang($row->status) </span>
-                    @endif
+                    <span class="badge bg-{{$row->cssStatus()}}">
+                         @lang($row->status)
+                    </span>
                 </td>
                 <td>@lang($row->type)</td>
                 <td>{{$row->time_to_read}} دقیقه </td>

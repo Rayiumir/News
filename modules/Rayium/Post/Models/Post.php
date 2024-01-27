@@ -39,6 +39,7 @@ class Post extends Model implements Viewable
 
     public const TYPE_VIP = 'vip';
     public const TYPE_NORMAL = 'normal';
+
     public static array $types = [self::TYPE_VIP, self::TYPE_NORMAL];
 
     public function user()
@@ -54,5 +55,12 @@ class Post extends Model implements Viewable
     public function getCreateAtShamsi()
     {
         return new Verta($this->created_at);
+    }
+
+    public function cssStatus()
+    {
+        if ($this->status === self::STATUS_ACTIVE) return 'success';
+        else if ($this->status === self::STATUS_INACTIVE) return 'danger';
+        else return 'warning';
     }
 }

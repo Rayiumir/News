@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $this->authorize('index', User::class);
+        //$this->authorize('index', User::class);
         $users = $this->repo->index();
         return view('User::index', compact('users'));
     }
