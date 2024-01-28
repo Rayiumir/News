@@ -78,4 +78,5 @@ class PostService
 
         return $post->update(['status' => Post::STATUS_ACTIVE]);
     }
+
 }

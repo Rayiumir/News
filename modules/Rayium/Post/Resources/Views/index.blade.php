@@ -37,8 +37,12 @@
                 <td>{{$row->user->name}}</td>
                 <td>{{$row->getCreateAtShamsi()}}</td>
                 <td>
-                    <a href="{{ route('posts.edit', $row->id) }}" type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-edit"></i> ویرایش </a>
-                    <button type="button" class="btn btn-danger btn-sm" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i> حذف </button>
+                    <a href="{{ route('posts.edit', $row->id) }}" type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-edit"></i></a>
+
+                    <button type="button" class="btn btn-warning btn-sm" onclick="event.preventDefault();document.getElementById('status-{{$row->id}}').submit()"><i class="fa-duotone fa-arrows-rotate"></i></button>
+                    <form id="status-{{$row->id}}" action="{{ route('posts.status', $row->id) }}" method="POST">@csrf @method('PATCH')</form>
+
+                    <button type="button" class="btn btn-danger btn-sm" onclick="event.preventDefault();document.getElementById('trash-{{$row->id}}').submit()"><i class="fa-duotone fa-trash"></i></button>
                     <form id="trash-{{$row->id}}" action="{{ route('posts.destroy', $row->id) }}" method="POST">@csrf @method('DELETE')</form>
                 </td>
             </tr>

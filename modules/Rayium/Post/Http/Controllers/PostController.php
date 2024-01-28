@@ -130,4 +130,18 @@ class PostController extends Controller
         }
         return array($imageName, $imagePath);
     }
+
+    public function changeStatus($id)
+    {
+        $this->authorize('index', Post::class);
+        $post = $this->repo->findById($id);
+        $this->service->changeStatus($post);
+
+        $notification = array(
+            'message' => 'وضعیت نوشته با موفقیت تغییر کرد.',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
+    }
 }
