@@ -1,16 +1,18 @@
 <?php
 
-namespace Database\Factories;
+namespace modules\Rayium\User\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use modules\Rayium\User\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\modules\Rayium\User\Models\User>
  */
 class UserFactory extends Factory
 {
+    protected $model = User::class;
     /**
      * The current password being used by the factory.
      */

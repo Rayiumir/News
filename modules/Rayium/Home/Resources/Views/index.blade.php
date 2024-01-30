@@ -1,6 +1,6 @@
 <x-Home::HomeLayout>
     @include('Home::parts.header')
-    @include('Home::parts.special')
+    @include('Home::parts.special', ['specials' => $homeRepo])
     <div class="row">
         @include('Home::parts.sidebarRight')
         @include('Home::parts.posts')
