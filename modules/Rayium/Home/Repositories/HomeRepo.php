@@ -33,4 +33,9 @@ class HomeRepo
     {
         return Post::query()->whereStatus(Post::STATUS_ACTIVE)->whereType(Post::TYPE_NORMAL)->latest()->paginate(10);
     }
+
+    public function getNewPostSidebars()
+    {
+        return Post::query()->whereStatus(Post::STATUS_ACTIVE)->whereType(Post::TYPE_NORMAL)->latest()->limit(10)->get();
+    }
 }

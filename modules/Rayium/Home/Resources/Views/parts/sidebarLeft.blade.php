@@ -11,43 +11,13 @@
     <div class="card border-0 rounded-4 mb-3">
         <div class="card-body">
             <i class="fa-duotone fa-pen-nib mb-3"></i> نوشته های اخیر
-
+            @foreach($homeRepo->getNewPostSidebars() as $row)
             <article class="card rounded-4 mb-2">
                 <div class="p-2">
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
+                    <a href="#" class="text-decoration-none text-dark"> {{$row->title}} <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
                 </div>
             </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
-                </div>
-            </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
-                </div>
-            </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
-                </div>
-            </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
-                </div>
-            </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم <span class="float-end"><i class="fa-duotone fa-arrow-left"></i> </span></a>
-                </div>
-            </article>
-
+            @endforeach
         </div>
     </div>
 
