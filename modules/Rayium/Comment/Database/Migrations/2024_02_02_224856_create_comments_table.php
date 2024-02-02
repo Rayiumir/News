@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('CASCADE');
+            $table->foreignId('comment_id')->constrained('comments')->onDelete('CASCADE');
+            $table->longText('body');
+            $table->unsignedBigInteger('commentable_id');
+            $table->string('commentable_type', 80);
+            $table->enum('status', \modules\Rayium\Comment\Models\Comment::$statuses);
             $table->timestamps();
         });
     }
