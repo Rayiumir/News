@@ -171,6 +171,7 @@ return [
         \modules\Rayium\Category\Provider\CategoryServiceProvider::class,
         \modules\Rayium\Role\Providers\RoleServiceProvider::class,
         \modules\Rayium\Post\Providers\PostServiceProvider::class,
+        \modules\Rayium\Comment\Provider\CommentServiceProvider::class,
         /*
          * Application Service Providers...
          */

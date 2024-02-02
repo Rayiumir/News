@@ -7,5 +7,6 @@ return [
         'category' => [],
         'role' => [],
         'post' => [],
+        'Comment' => [],
     ],
 ];
