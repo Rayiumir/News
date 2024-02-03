@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\Rayium\Comment\Http\Controllers;
+namespace modules\Rayium\Comment\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use modules\Rayium\Comment\Models\Comment;
@@ -18,7 +18,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = $this->repo->index()->paginate(10);
-        return view('Comment::index', compact('comments'));
+        return view('Comment::Admin.index', compact('comments'));
     }
 
     public function destory($id)
