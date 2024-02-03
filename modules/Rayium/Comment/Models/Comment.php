@@ -19,9 +19,9 @@ class Comment extends Model
         'status'
     ];
 
-    protected const STATUS_ACTIVE = 'active';
-    protected const STATUS_NEW = 'new';
-    protected const STATUS_INACTIVE = 'inactive';
+    public const STATUS_ACTIVE = 'active';
+    public const STATUS_NEW = 'new';
+    public const STATUS_INACTIVE = 'inactive';
 
     public static array $statuses = [
         self::STATUS_ACTIVE,

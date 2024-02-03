@@ -2,5 +2,5 @@
     <x-slot name="title">
         - لیست نظرات
     </x-slot>
-    نظرات کاربران
+    لیست نظرات
 </x-Admin::AdminLayout>
