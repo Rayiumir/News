@@ -30,4 +30,9 @@ class PostRepo
     {
         return $this->query()->whereSlug($slug)->first();
     }
+
+    public function relatedPosts($categoryId, $id)
+    {
+        return $this->query()->where('category_id', $categoryId)->whereStatus(Post::STATUS_ACTIVE)->where('id', '!=', $id);
+    }
 }

@@ -23,6 +23,7 @@ class HomeController extends Controller
     {
         $post = $this->repo->findBySlug($slug);
         if(is_null($post)) abort(404);
-        return view('Home::Single.single', compact('post', 'homeRepo'));
+        $relatedPost = $this->repo->relatedPosts($post->category_id, $post->id)->limit(6)->get();
+        return view('Home::Single.single', compact('post', 'homeRepo', 'relatedPost'));
     }
 }

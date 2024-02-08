@@ -12,4 +12,5 @@
             <i class="fa-duotone fa-clock"></i> {{$post->created_at->diffForHumans()}}
         </div>
     </article>
+    @include('Home::Single.related')
 </section>
