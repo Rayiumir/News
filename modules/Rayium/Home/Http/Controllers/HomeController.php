@@ -21,11 +21,12 @@ class HomeController extends Controller
         return view('Home::index', compact('homeRepo', 'categories'));
     }
 
-    public function single($slug, HomeRepo $homeRepo)
+    public function single($slug, HomeRepo $homeRepo, CategoryRepo $categoryRepo)
     {
         $post = $this->repo->findBySlug($slug);
         if(is_null($post)) abort(404);
         $relatedPost = $this->repo->relatedPosts($post->category_id, $post->id)->limit(6)->get();
-        return view('Home::Single.single', compact('post', 'homeRepo', 'relatedPost'));
+        $categories = $categoryRepo->getActiveCategories()->get();
+        return view('Home::Single.single', compact('post', 'homeRepo', 'relatedPost', 'categories'));
     }
 }
