@@ -6,17 +6,17 @@
                 <i class="fa-duotone fa-user-tie"></i> درباره ما
                 <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
             </div>
-            <div class="col-md-3">
-                <i class="fa-duotone fa-link"></i> پیوند های مفید
-                <ul>
-                    <li>تست</li>
-                    <li>تست</li>
-                    <li>تست</li>
-                    <li>تست</li>
-                    <li>تست</li>
-                    <li>تست</li>
-                </ul>
-            </div>
+            @foreach($categories->chunk(8) as $row)
+                <div class="col-md-3">
+                    <i class="fa-duotone fa-link"></i> پیوند های مفید
+                    <ul>
+                        @foreach($row as $rows)
+                            <li><a href="#" class="text-decoration-none text-dark">{{$rows->title}}</a> </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
+
             <div class="col-md-3">
                 <i class="fa-duotone fa-share"></i>  راه های ارتباطی
                 <ul>

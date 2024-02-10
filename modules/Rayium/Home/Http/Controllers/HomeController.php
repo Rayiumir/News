@@ -3,6 +3,7 @@
 namespace modules\Rayium\Home\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use modules\Rayium\Category\Repositories\CategoryRepo;
 use modules\Rayium\Home\Repositories\HomeRepo;
 use modules\Rayium\Post\Repositories\PostRepo;
 
@@ -15,8 +16,9 @@ class HomeController extends Controller
         $this->repo = $postRepo;
     }
 
-    public function index(HomeRepo $homeRepo){
-        return view('Home::index', compact('homeRepo'));
+    public function index(HomeRepo $homeRepo, CategoryRepo $categoryRepo){
+        $categories = $categoryRepo->getActiveCategories()->get();
+        return view('Home::index', compact('homeRepo', 'categories'));
     }
 
     public function single($slug, HomeRepo $homeRepo)
