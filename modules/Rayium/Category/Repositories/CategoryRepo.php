@@ -44,4 +44,9 @@ class CategoryRepo
     {
         return $this->query()->where('status', Category::STATUS_ACTIVE)->latest();
     }
+
+    public function findBySlug($slug)
+    {
+        return $this->query()->where('status', Category::STATUS_ACTIVE)->whereSlug($slug)->first();
+    }
 }

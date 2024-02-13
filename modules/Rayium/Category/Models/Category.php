@@ -58,4 +58,9 @@ class Category extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function path()
+    {
+        return route('categories.single', $this->slug);
+    }
 }

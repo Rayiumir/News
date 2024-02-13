@@ -7,6 +7,8 @@ use modules\Rayium\Category\Http\Requests\CategoryRequest;
 use modules\Rayium\Category\Models\Category;
 use modules\Rayium\Category\Repositories\CategoryRepo;
 use modules\Rayium\Category\Services\CategoryService;
+use modules\Rayium\Home\Repositories\HomeRepo;
+use modules\Rayium\Post\Repositories\PostRepo;
 
 class CategoryController extends Controller
 {
@@ -92,5 +94,16 @@ class CategoryController extends Controller
         );
 
         return back()->with($notification);
+    }
+
+    public function single($slug, CategoryRepo $categoryRepo, PostRepo $postRepo, HomeRepo $homeRepo)
+    {
+        $category = $categoryRepo->findBySlug($slug);
+
+        if (is_null($category)) abort(404);
+
+        $posts = $postRepo->getPostsByCategoryId($category->id)->paginate(12);
+
+        return view('Category::Home.index', compact(['category', 'posts', 'homeRepo']));
     }
 }

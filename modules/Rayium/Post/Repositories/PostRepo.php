@@ -35,4 +35,9 @@ class PostRepo
     {
         return $this->query()->where('category_id', $categoryId)->whereStatus(Post::STATUS_ACTIVE)->where('id', '!=', $id);
     }
+
+    public function getPostsByCategoryId($category_id)
+    {
+        return $this->query()->whereStatus(Post::STATUS_ACTIVE)->where('category_id', $category_id);
+    }
 }

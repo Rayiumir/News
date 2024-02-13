@@ -17,12 +17,12 @@
                 </li>
                 @foreach($categories as $row)
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="{{$row->path()}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{$row->title}}
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($row->subCategories as $rows)
-                            <li><a class="dropdown-item" href="#">{{$rows->title}}</a></li>
+                            <li><a class="dropdown-item" href="{{$rows->path()}}">{{$rows->title}}</a></li>
                         @endforeach
                     </ul>
                 </li>
