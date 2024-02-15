@@ -21,7 +21,7 @@ class CategoryRepo
         return $this->query()->get();
     }
 
-    public function delete()
+    public function delete($id)
     {
         return $this->query()->where('id', $id)->delete();
     }
