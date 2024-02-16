@@ -18,7 +18,6 @@ class HomeServiceProvider extends ServiceProvider
         view()->composer(['Home::parts.header', 'Home::parts.footer'], static function($view){
             $categoryRepo = new CategoryRepo;
             $categories = $categoryRepo->getActiveCategories()->get();
-
             $view->with(['categories' => $categories]);
         });
     }

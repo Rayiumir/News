@@ -1,9 +1,8 @@
 <x-Home::HomeLayout>
     @include('Home::parts.header')
-    @include('Home::parts.special', ['specials' => $homeRepo])
-    <div class="row">
+    <div class="row mt-3">
         @include('Home::parts.sidebarRight')
-        @include('Category::Home.index')
+        @include('Category::Home.Single.posts')
         @include('Home::parts.sidebarLeft')
     </div>
     @include('Home::parts.videos')
