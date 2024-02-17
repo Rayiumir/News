@@ -1,4 +1,4 @@
-{{-- خبرهای جدید --}}
+{{-- خبرهای دسته بندی --}}
 <section class="col-md-6">
     @foreach($posts as $row)
         <article class="card border-0 rounded-4 mb-3">
@@ -14,6 +14,9 @@
                             <i class="fa-duotone fa-list-tree"></i> {{$row->category->title}}
                             <i class="fa-duotone fa-user"></i> {{$row->user->name}}
                             <i class="fa-duotone fa-clock"></i> {{$row->created_at->diffForHumans()}}
+                            <div class="float-end">
+                                <a href="{{ route('home.single', $row->slug) }}" type="button" class="btn btn-primary btn-sm rounded-5"><i class="fa-duotone fa-eye"></i> مشاهده </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -21,6 +24,6 @@
             </div>
         </article>
     @endforeach
-{{--    {{$homeRepo->getNewPosts()->links()}}--}}
+    {{$posts->links()}}
 </section>
-{{-- پایان خبرهای جدید --}}
+{{-- پایان دسته بندی --}}
