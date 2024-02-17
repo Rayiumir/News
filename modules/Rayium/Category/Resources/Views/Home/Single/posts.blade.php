@@ -1,6 +1,6 @@
 {{-- خبرهای جدید --}}
 <section class="col-md-6">
-    @foreach($categoies as $row)
+    @foreach($posts as $row)
         <article class="card border-0 rounded-4 mb-3">
             <div class="card-body">
                 <div class="row g-0">
