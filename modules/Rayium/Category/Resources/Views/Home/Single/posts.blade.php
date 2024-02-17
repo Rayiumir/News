@@ -1,6 +1,6 @@
 {{-- خبرهای دسته بندی --}}
 <section class="col-md-6">
-    @foreach($posts as $row)
+    @forelse($posts as $row)
         <article class="card border-0 rounded-4 mb-3">
             <div class="card-body">
                 <div class="row g-0">
@@ -23,7 +23,11 @@
 
             </div>
         </article>
-    @endforeach
+    @empty
+        <div class="alert alert-warning rounded-4" role="alert">
+            <i class="fa-duotone fa-circle-exclamation"></i>  در حال حاضر محتوایی برای دسته بندی وجود ندارد
+        </div>
+    @endforelse
     {{$posts->links()}}
 </section>
 {{-- پایان دسته بندی --}}
