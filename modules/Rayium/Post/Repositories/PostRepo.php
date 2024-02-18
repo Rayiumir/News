@@ -40,4 +40,9 @@ class PostRepo
     {
         return $this->query()->whereStatus(Post::STATUS_ACTIVE)->where('category_id', $category_id);
     }
+
+    public function getPostsByView()
+    {
+        return $this->query()->whereStatus(Post::STATUS_ACTIVE)->orderByViews();
+    }
 }

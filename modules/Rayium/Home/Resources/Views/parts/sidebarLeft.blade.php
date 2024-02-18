@@ -25,37 +25,21 @@
         <div class="card-body">
             <i class="fa-duotone fa-comments mb-3"></i> نظرات کاربران
 
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <span>رایموند میگه : </span>
-                    <br>
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </a>
-                </div>
-            </article>
+            @foreach($latestComment as $row)
+                <article class="card rounded-4 mb-2">
+                    <div class="p-2">
+                        <a href="{{$row->user->path()}}" class="text-decoration-none text-dark">
+                            <span>{{ $row->user->name }} میگه : </span>
+                        </a>
+                        <br>
+                        <a href="{{$row->commentable->path()}}" class="text-decoration-none text-dark">
+                            <p>{{\Illuminate\Support\Str::limit($row->body)}}</p>
+                        </a>
+                        <i class="fa-duotone fa-clock"></i> {{$row->created_at->diffForHumans()}}
+                    </div>
+                </article>
 
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <span>رایموند میگه : </span>
-                    <br>
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </a>
-                </div>
-            </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <span>رایموند میگه : </span>
-                    <br>
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </a>
-                </div>
-            </article>
-
-            <article class="card rounded-4 mb-2">
-                <div class="p-2">
-                    <span>رایموند میگه : </span>
-                    <br>
-                    <a href="#" class="text-decoration-none text-dark">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </a>
-                </div>
-            </article>
+            @endforeach
 
         </div>
     </div>

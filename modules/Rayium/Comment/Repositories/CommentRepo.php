@@ -30,4 +30,10 @@ class CommentRepo
     {
         return Comment::query();
     }
+
+    public function getLatestComments()
+    {
+        return $this->query()->where('status', Comment::STATUS_ACTIVE)->latest();
+    }
+
 }

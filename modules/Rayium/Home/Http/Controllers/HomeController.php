@@ -4,6 +4,7 @@ namespace modules\Rayium\Home\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use modules\Rayium\Category\Repositories\CategoryRepo;
+use modules\Rayium\Comment\Repositories\CommentRepo;
 use modules\Rayium\Home\Repositories\HomeRepo;
 use modules\Rayium\Post\Repositories\PostRepo;
 
@@ -16,9 +17,11 @@ class HomeController extends Controller
         $this->repo = $postRepo;
     }
 
-    public function index(HomeRepo $homeRepo, CategoryRepo $categoryRepo){
+    public function index(HomeRepo $homeRepo, CategoryRepo $categoryRepo, CommentRepo $commentRepo){
         $categories = $categoryRepo->getActiveCategories()->get();
-        return view('Home::index', compact('homeRepo', 'categories'));
+        $viewsPosts = $this->repo->getPostsByView()->latest()->limit(5)->get();
+        $latestComment = $commentRepo->getLatestComments()->limit(5)->get();
+        return view('Home::index', compact('homeRepo', 'categories', 'viewsPosts', 'latestComment'));
     }
 
     public function single($slug, HomeRepo $homeRepo, CategoryRepo $categoryRepo)
@@ -27,6 +30,8 @@ class HomeController extends Controller
         if(is_null($post)) abort(404);
         $relatedPost = $this->repo->relatedPosts($post->category_id, $post->id)->limit(6)->get();
         $categories = $categoryRepo->getActiveCategories()->get();
-        return view('Home::Single.single', compact('post', 'homeRepo', 'relatedPost', 'categories'));
+        $viewsPosts = $this->repo->getPostsByView()->latest()->limit(5)->get();
+        $latestComment = $commentRepo->getLatestComments()->limit(5)->get();
+        return view('Home::Single.single', compact('post', 'homeRepo', 'relatedPost', 'categories', 'viewsPosts', 'latestComment'));
     }
 }

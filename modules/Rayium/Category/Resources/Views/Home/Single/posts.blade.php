@@ -12,7 +12,7 @@
                             <h6 class="fs-5 fw-bold">{{\Illuminate\Support\Str::limit($row->title, 25)}}</h6>
                             <p class="text-muted">{{\Illuminate\Support\Str::limit($row->description, 100)}}</p>
                             <i class="fa-duotone fa-list-tree"></i> {{$row->category->title}}
-                            <i class="fa-duotone fa-user"></i> {{$row->user->name}}
+                            <i class="fa-duotone fa-user"></i> <a href="{{$row->user->path()}}" class="text-decoration-none text-dark">{{$row->user->name}}</a>
                             <i class="fa-duotone fa-clock"></i> {{$row->created_at->diffForHumans()}}
                             <div class="float-end">
                                 <a href="{{ route('home.single', $row->slug) }}" type="button" class="btn btn-primary btn-sm rounded-5"><i class="fa-duotone fa-eye"></i> مشاهده </a>
