@@ -24,7 +24,7 @@ class HomeController extends Controller
         return view('Home::index', compact('homeRepo', 'categories', 'viewsPosts', 'latestComment'));
     }
 
-    public function single($slug, HomeRepo $homeRepo, CategoryRepo $categoryRepo)
+    public function single($slug, HomeRepo $homeRepo, CategoryRepo $categoryRepo, CommentRepo $commentRepo)
     {
         $post = $this->repo->findBySlug($slug);
         if(is_null($post)) abort(404);
