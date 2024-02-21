@@ -13,4 +13,5 @@
         </div>
     </article>
     @include('Home::Single.related')
+    @include('Home::Single.comments')
 </section>
