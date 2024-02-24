@@ -1,5 +1,6 @@
 <section class="card mt-3 mb-3 border-0 rounded-4">
     <div class="card-body">
+        {{$post->comments->count()}} نظرات
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
                 <div class="d-flex flex-start mb-4">

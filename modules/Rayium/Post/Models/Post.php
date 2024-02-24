@@ -8,12 +8,14 @@ use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use modules\Rayium\Category\Models\Category;
+use modules\Rayium\Comment\Models\Comment;
+use modules\Rayium\Comment\Trait\HaveComments;
 use modules\Rayium\User\Models\User;
 use Overtrue\LaravelLike\Traits\Likeable;
 
 class Post extends Model implements Viewable
 {
-    use HasFactory, InteractsWithViews, Likeable;
+    use HasFactory, InteractsWithViews, Likeable, HaveComments;
 
     protected $fillable = [
         'user_id',
@@ -67,5 +69,15 @@ class Post extends Model implements Viewable
     public function path()
     {
         return route('home.single', $this->slug);
+    }
+
+    public function getCommentCount()
+    {
+        if(is_null($this->comments))
+        {
+            return 0;
+        }
+
+        return $this->comments->count();
     }
 }
