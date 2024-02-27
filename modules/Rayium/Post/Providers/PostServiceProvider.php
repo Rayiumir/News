@@ -28,4 +28,5 @@ class PostServiceProvider extends ServiceProvider
             ]);
         });
     }
+
 }

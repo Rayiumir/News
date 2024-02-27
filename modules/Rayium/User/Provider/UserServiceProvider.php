@@ -25,7 +25,7 @@ class UserServiceProvider extends ServiceProvider
     {
         $this->app->booted(static function(){
             config()->set('AdminConfig.menus.users', [
-                'url' => route('users.index'),
+                'url' => route('User::index'),
                 'title' => 'کاربران',
                 'icon' => 'fa-users'
             ]);

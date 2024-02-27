@@ -21,7 +21,7 @@ class CommentController extends Controller
         return view('Comment::Admin.index', compact('comments'));
     }
 
-    public function destory($id)
+    public function destroy($id)
     {
         $this->repo->delete($id);
 

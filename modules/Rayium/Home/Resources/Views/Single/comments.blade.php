@@ -60,30 +60,7 @@
             </div>
         @endforeach
 
-
-
-            <div class="card mt-3 rounded-4">
-                <div class="card-body">
-                    <form class="row g-3">
-                        <div class="col-md-6">
-                            <label for="input1" class="form-label">نام : </label>
-                            <input type="text" class="form-control rounded-4" id="input1">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="input2" class="form-label">ایمیل : </label>
-                            <input type="email" class="form-control rounded-4" id="input2">
-                        </div>
-                        <div class="col-12">
-                            <label for="textarea" class="form-label">متن نظر : </label>
-                            <textarea type="text" class="form-control rounded-4" id="textarea" rows="3" placeholder="متن نظر ..."></textarea>
-                        </div>
-
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary rounded-5"><i class="fa-duotone fa-send"></i> ثبت نظر </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        @include('Home::Single.CommentForm')
 
     </div>
 </section>
