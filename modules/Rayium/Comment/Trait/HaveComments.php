@@ -5,7 +5,7 @@ namespace modules\Rayium\Comment\Trait;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 use modules\Rayium\Comment\Models\Comment;
 
-class HaveComments
+trait HaveComments
 {
     use HasRelationships;
 
