@@ -16,7 +16,7 @@ trait HaveComments
 
     public function activeComments()
     {
-        $this->morphMany(Comment::class, 'commentable')
+        return $this->morphMany(Comment::class, 'commentable')
             ->where('status', Comment::STATUS_ACTIVE)
             ->with('comments')
             ->whereNull('comment_id');

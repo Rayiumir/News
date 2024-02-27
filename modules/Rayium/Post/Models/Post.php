@@ -8,7 +8,6 @@ use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use modules\Rayium\Category\Models\Category;
-use modules\Rayium\Comment\Models\Comment;
 use modules\Rayium\Comment\Trait\HaveComments;
 use modules\Rayium\User\Models\User;
 use Overtrue\LaravelLike\Traits\Likeable;
