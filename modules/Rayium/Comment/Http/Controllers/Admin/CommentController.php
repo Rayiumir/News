@@ -17,12 +17,14 @@ class CommentController extends Controller
 
     public function index()
     {
+        $this->authorize('index', Comment::class);
         $comments = $this->repo->index()->paginate(10);
         return view('Comment::Admin.index', compact('comments'));
     }
 
     public function destroy($id)
     {
+        $this->authorize('index', Comment::class);
         $this->repo->delete($id);
 
         $notification = array(
@@ -35,6 +37,7 @@ class CommentController extends Controller
 
     public function active($id)
     {
+        $this->authorize('index', Comment::class);
         $this->repo->active($id, Comment::STATUS_ACTIVE);
 
         $notification = array(
@@ -47,6 +50,7 @@ class CommentController extends Controller
 
     public function inactive($id)
     {
+        $this->authorize('index', Comment::class);
         $this->repo->inactive($id, Comment::STATUS_INACTIVE);
 
         $notification = array(

@@ -4,6 +4,7 @@ namespace modules\Rayium\Comment\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use modules\Rayium\Comment\Http\Requests\CommentRequest;
+use modules\Rayium\Comment\Models\Comment;
 use modules\Rayium\Comment\Service\CommentService;
 
 class CommentController extends Controller

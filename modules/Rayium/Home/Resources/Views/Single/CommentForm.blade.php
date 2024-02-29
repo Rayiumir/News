@@ -6,12 +6,8 @@
             <input type="hidden" name="commentable_type" value="{{get_class($post)}}">
             <div class="col-12">
                 <label for="textarea" class="form-label">متن نظر : </label>
-                <textarea type="text" name="body" class="form-control rounded-4 @error('body') is-invalid @enderror" id="textarea" rows="3" placeholder="متن نظر ...">{{old('body')}}</textarea>
-                @error('body')
-                    <span class="invalid-feedback" role="alert">
-                         <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <textarea name="body" class="form-control rounded-4" id="textarea" rows="3" placeholder="متن نظر ...">{{old('body')}}</textarea>
+
             </div>
 
             <div class="col-12">

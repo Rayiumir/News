@@ -7,6 +7,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], static function ($rou
     $router->delete('/comments/{id}', [\modules\Rayium\Comment\Http\Controllers\Admin\CommentController::class, 'destroy'])->name('comments.destroy');
 });
 
-Route::group(['middleware' => 'web'], static function ($router){
+Route::group(['prefix' => 'single', ['middleware' => ['web']]], static function ($router){
     $router->post('/comments', [\modules\Rayium\Comment\Http\Controllers\Home\CommentController::class, 'store'])->name('comments.single.store');
 });
