@@ -18,11 +18,11 @@
                 <th scope="row">{{$row->id}}</th>
                 <td>{{$row->name}}</td>
                 <td>
-                    @if( !empty($row->status))
-                        <span class="badge bg-success"><i class="fa-duotone fa-check"></i> تایید شده </span>
-                    @else
-                        <span class="badge bg-danger"><i class="fa-duotone fa-xmark"></i> تایید نشده </span>
-                    @endif
+                    @foreach ($row->permissions as $rows)
+                        <span class="badge bg-primary">
+                             @lang($rows->name)
+                        </span>
+                    @endforeach
                 </td>
                 <td class="text-center">
                     <a href="{{ route('roles.edit', $row->id) }}" type="button" class="btn btn-secondary btn-sm"><i class="fa-duotone fa-edit"></i> ویرایش </a>
