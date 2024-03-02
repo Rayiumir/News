@@ -18,7 +18,7 @@ class CommentService
         ]);
     }
 
-    public function setStatus(): string
+    private function setStatus(): string
     {
         if (auth()->user()->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN))
         {
