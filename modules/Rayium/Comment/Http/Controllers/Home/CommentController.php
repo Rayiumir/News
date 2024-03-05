@@ -11,6 +11,7 @@ class CommentController extends Controller
 {
     public function store(CommentRequest $request, CommentService $commentService)
     {
+        $this->authorize('index', Comment::class);
         $commentService->store($request);
 
         $notification = array(

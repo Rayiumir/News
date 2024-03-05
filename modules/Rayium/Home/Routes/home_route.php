@@ -7,6 +7,6 @@ Route::group(['namespace' => 'Rayium\Home', 'middleware' => 'web'], function ($r
     $router->get('/', [HomeController::class, 'index'])->name('home.index');
 });
 
-Route::group(['namespace' => 'Rayium\Home'], function ($router){
+Route::group(['namespace' => 'Rayium\Home', 'middleware' => 'web'], function ($router){
     $router->get('/posts/{slug}', [HomeController::class, 'single'])->name('home.single');
 });

@@ -7,7 +7,6 @@
             <div class="col-12">
                 <label for="textarea" class="form-label">متن نظر : </label>
                 <textarea name="body" class="form-control rounded-4" id="textarea" rows="3" placeholder="متن نظر ...">{{old('body')}}</textarea>
-
             </div>
 
             <div class="col-12">

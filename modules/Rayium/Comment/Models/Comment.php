@@ -2,6 +2,7 @@
 
 namespace modules\Rayium\Comment\Models;
 
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use modules\Rayium\User\Models\User;
@@ -48,4 +49,10 @@ class Comment extends Model
     {
         return $this->morphTo();
     }
+
+    public function getCreateAtShamsi()
+    {
+        return new Verta($this->created_at);
+    }
+
 }
