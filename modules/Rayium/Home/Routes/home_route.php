@@ -1,12 +1,14 @@
 <?php
 
-use modules\Rayium\Home\Http\Controllers\HomeController;
-
-
-Route::group(['namespace' => 'Rayium\Home', 'middleware' => 'web'], function ($router){
-    $router->get('/', [HomeController::class, 'index'])->name('home.index');
+Route::group([ 'namespace' => 'Rayium\Home', 'middleware' => 'web'], function ($router){
+    $router->get('/', [\modules\Rayium\Home\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 });
 
 Route::group(['namespace' => 'Rayium\Home', 'middleware' => 'web'], function ($router){
-    $router->get('/posts/{slug}', [HomeController::class, 'single'])->name('home.single');
+    $router->get('/posts/{slug}', [\modules\Rayium\Home\Http\Controllers\HomeController::class, 'single'])->name('home.single');
+});
+
+Route::group(['namespace' => 'Rayium\Home'], static function ($router){
+    $router->get('/authors', [ \modules\Rayium\User\Http\Controllers\AuthorController::class, 'authors']);
+    $router->get('/authors/{name}', [ \modules\Rayium\User\Http\Controllers\AuthorController::class, 'author'])->name('authors.author');
 });

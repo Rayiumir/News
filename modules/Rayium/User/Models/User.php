@@ -72,6 +72,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function path()
     {
-        //
+        return route('authors.index', $this->name);
     }
 }

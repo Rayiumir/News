@@ -33,7 +33,7 @@
             @foreach($homeRepo->getAuthorUsers() as $row)
                 <article class="card rounded-4 mb-2">
                     <div class="p-2">
-                        <a href="#" class="text-decoration-none text-dark">{{$row->name}} <span class="float-end"> {{$row->posts->count()}} </span></a>
+                        <a href="{{$row->path()}}" class="text-decoration-none text-dark">{{$row->name}} <span class="float-end"> {{$row->posts->count()}} </span></a>
                     </div>
                 </article>
             @endforeach

@@ -20,4 +20,5 @@ class UserRepo
     {
         return User::query()->where('id', $id)->delete();
     }
+
 }
