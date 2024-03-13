@@ -13,17 +13,17 @@ use modules\Rayium\User\Repositories\AuthorRepo;
 class AuthorController extends Controller
 {
     public PostRepo $repo;
-    public AuthorRepo $repo;
+    public AuthorRepo $repos;
 
     public function __construct(PostRepo $postRepo, AuthorRepo $authorRepo)
     {
         $this->repo = $postRepo;
-        $this->repo = $authorRepo;
+        $this->repos = $authorRepo;
     }
 
     public function authors(HomeRepo $homeRepo, CommentRepo $commentRepo, CategoryRepo $categoryRepo)
     {
-        $authors = $this->repo->authors()->paginate(50);
+        $authors = $this->repos->authors()->paginate(50);
         $categories = $categoryRepo->getActiveCategories()->get();
         $viewsPosts = $this->repo->getPostsByView()->latest()->limit(5)->get();
         $latestComment = $commentRepo->getLatestComments()->limit(5)->get();
@@ -32,7 +32,7 @@ class AuthorController extends Controller
 
     public function author($name) {
 
-        $author = $this->repo->findByName($name);
+        $author = $this->repos->findByName($name);
         return view('Home::Author.author', compact('author'));
     }
 

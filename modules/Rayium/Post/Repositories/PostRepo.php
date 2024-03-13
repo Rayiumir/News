@@ -45,4 +45,5 @@ class PostRepo
     {
         return $this->query()->whereStatus(Post::STATUS_ACTIVE)->orderByViews();
     }
+
 }
