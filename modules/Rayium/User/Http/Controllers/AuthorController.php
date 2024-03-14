@@ -21,19 +21,18 @@ class AuthorController extends Controller
         $this->repos = $authorRepo;
     }
 
-    public function authors(HomeRepo $homeRepo, CommentRepo $commentRepo, CategoryRepo $categoryRepo)
+    public function authors(HomeRepo $homeRepo)
     {
         $authors = $this->repos->authors()->paginate(50);
+        return view('Home::Author.author', compact('authors', 'homeRepo'));
+    }
+
+    public function author($name, HomeRepo $homeRepo, CommentRepo $commentRepo, CategoryRepo $categoryRepo) {
+        $author = $this->repos->findByName($name);
         $categories = $categoryRepo->getActiveCategories()->get();
         $viewsPosts = $this->repo->getPostsByView()->latest()->limit(5)->get();
         $latestComment = $commentRepo->getLatestComments()->limit(5)->get();
-        return view('Home::parts.author', compact('authors', 'homeRepo', 'categories', 'viewsPosts', 'latestComment'));
-    }
-
-    public function author($name) {
-
-        $author = $this->repos->findByName($name);
-        return view('Home::Author.author', compact('author'));
+        return view('Home::parts.author', compact('author', 'homeRepo', 'categories', 'viewsPosts', 'latestComment'));
     }
 
 }
