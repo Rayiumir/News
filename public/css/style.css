@@ -29,3 +29,9 @@ body{
 .MultiCarousel .leftLst { left:0; }
 .MultiCarousel .rightLst { right:0; }
 .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+/*  نویسندگان */
+
+figure.imgauthor img{
+    border: 1px solid #e8e8e8;
+}

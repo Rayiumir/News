@@ -1,4 +1,4 @@
-{{-- خبرهای جدید --}}
+
 <section class="col-md-6">
     @foreach($homeRepo->getNewPosts() as $post)
     <article class="card border-0 rounded-4 mb-3">
@@ -26,4 +26,4 @@
     @endforeach
     {{$homeRepo->getNewPosts()->links()}}
 </section>
-{{-- پایان خبرهای جدید --}}
+

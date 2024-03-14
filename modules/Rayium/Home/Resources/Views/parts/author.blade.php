@@ -3,9 +3,7 @@
     @include('Home::parts.special', ['specials' => $homeRepo])
     <div class="row">
         @include('Home::parts.sidebarRight')
-        <section class="col-md-6">
-            تست
-        </section>
+        @include('Home::Author.author')
         @include('Home::parts.sidebarLeft')
     </div>
     @include('Home::parts.videos')

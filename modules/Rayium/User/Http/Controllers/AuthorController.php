@@ -7,32 +7,37 @@ use modules\Rayium\Category\Repositories\CategoryRepo;
 use modules\Rayium\Comment\Repositories\CommentRepo;
 use modules\Rayium\Home\Repositories\HomeRepo;
 use modules\Rayium\Post\Repositories\PostRepo;
+use modules\Rayium\Role\Models\Permission;
 use modules\Rayium\User\Repositories\AuthorRepo;
 
 
 class AuthorController extends Controller
 {
-    public PostRepo $repo;
-    public AuthorRepo $repos;
+    public AuthorRepo $repo;
+    public PostRepo $repos;
 
     public function __construct(PostRepo $postRepo, AuthorRepo $authorRepo)
     {
-        $this->repo = $postRepo;
-        $this->repos = $authorRepo;
+        $this->repo = $authorRepo;
+        $this->repos = $postRepo;
     }
 
-    public function authors(HomeRepo $homeRepo)
+    public function authors($name, HomeRepo $homeRepo)
     {
-        $authors = $this->repos->authors()->paginate(50);
-        return view('Home::Author.author', compact('authors', 'homeRepo'));
+        $authors = $this->repo->authors()->paginate(50);
+        $author = $this->repo->findByName($name)->permission(Permission::PERMISSION_AUTHORS)->first();
+        if (is_null($author)) abort('404');
+        return view('Home::Author.author', compact('authors', 'homeRepo', 'author'));
     }
 
-    public function author($name, HomeRepo $homeRepo, CommentRepo $commentRepo, CategoryRepo $categoryRepo) {
-        $author = $this->repos->findByName($name);
+    public function author($name, HomeRepo $homeRepo, CommentRepo $commentRepo, CategoryRepo $categoryRepo, PostRepo $postRepo) {
+
+        $author = $this->repo->findByName($name)->permission(Permission::PERMISSION_AUTHORS)->first();
         $categories = $categoryRepo->getActiveCategories()->get();
-        $viewsPosts = $this->repo->getPostsByView()->latest()->limit(5)->get();
+        $viewsPosts = $this->repos->getPostsByView()->latest()->limit(5)->get();
         $latestComment = $commentRepo->getLatestComments()->limit(5)->get();
-        return view('Home::parts.author', compact('author', 'homeRepo', 'categories', 'viewsPosts', 'latestComment'));
+        $posts = $postRepo->getPostsByUserId($author->id)->paginate(10);
+        return view('Home::parts.author', compact('homeRepo', 'categories', 'viewsPosts', 'latestComment', 'author', 'posts'));
     }
 
 }
