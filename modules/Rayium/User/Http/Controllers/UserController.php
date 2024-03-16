@@ -117,4 +117,10 @@ class UserController extends Controller
 
         return to_route('users.index')->with($notification);
     }
+
+    public function profile()
+    {
+        return view('User::profile');
+    }
+    public function updateProfile() {}
 }

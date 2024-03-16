@@ -36,7 +36,8 @@
                                 <i class="fa-light fa-list"></i> منو کاربری
                             </button>
                             <ul class="dropdown-menu rounded-4">
-                                <li><a class="dropdown-item" href="{{ route('admin.index') }}">میزکار مدیر کل</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.index') }}">میزکار </a></li>
+                                <li><a class="dropdown-item" href="{{ route('users.profile') }}">پروفایل</a></li>
                                 <li><a class="dropdown-item" href="{{ route('auth.logout') }}">خروج</a></li>
                             </ul>
                         </div>
