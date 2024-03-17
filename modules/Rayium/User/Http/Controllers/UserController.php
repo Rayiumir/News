@@ -5,6 +5,7 @@ namespace modules\Rayium\User\Http\Controllers;
 use App\Http\Controllers\Controller;
 use modules\Rayium\Role\Repositories\RoleRepo;
 use modules\Rayium\User\Http\Requests\AddRoleRequest;
+use modules\Rayium\User\Http\Requests\UpdateProfileRequest;
 use modules\Rayium\User\Http\Requests\UserRequest;
 use modules\Rayium\User\Http\Requests\UserUpdateRequest;
 use modules\Rayium\User\Models\User;
@@ -122,5 +123,15 @@ class UserController extends Controller
     {
         return view('User::profile');
     }
-    public function updateProfile() {}
+    public function updateProfile(UpdateProfileRequest $request, UserService $userService)
+    {
+        $userService->updateProfile($request, auth()->id());
+
+        $notification = array(
+            'message' => 'نمایه با موفقیت به روز شد',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
+    }
 }

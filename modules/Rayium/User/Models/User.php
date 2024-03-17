@@ -34,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'twitter',
         'bio',
         'imageName',
-        'imagePath'
+        'imagePath',
     ];
 
     public const STATUS_ACTIVE = 'active';
