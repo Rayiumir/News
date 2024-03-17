@@ -125,7 +125,9 @@ class UserController extends Controller
     }
     public function updateProfile(UpdateProfileRequest $request, UserService $userService)
     {
-        $userService->updateProfile($request, auth()->id());
+        [$imageName, $imagePath] = $this->service->uploadImage($request->file('image'), 'users');
+
+        $userService->updateProfile($request, auth()->id(), $imageName, $imagePath);
 
         $notification = array(
             'message' => 'نمایه با موفقیت به روز شد',
