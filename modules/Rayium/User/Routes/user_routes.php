@@ -10,5 +10,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], static function ($rou
 
     $router->get('/profile', [\modules\Rayium\User\Http\Controllers\UserController::class, 'profile'])->name('users.profile')->middleware('auth');
     $router->patch('/profile', [\modules\Rayium\User\Http\Controllers\UserController::class, 'updateProfile'])->name('update.profile')->middleware('auth');
+
 });
 
