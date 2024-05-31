@@ -2,6 +2,7 @@
 
 namespace modules\Rayium\User\Services;
 
+use Illuminate\Support\Facades\Storage;
 use modules\Rayium\User\Models\User;
 
 class UserService
@@ -35,8 +36,7 @@ class UserService
         return $user->removeRole($role);
     }
 
-    public function updateProfile($request, $id)
-    {
+    public function updateProfile($request, $id, $imageName, $imagePath){
         return User::query()->where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -46,8 +46,20 @@ class UserService
             'instagram' => $request->instagram,
             'twitter' => $request->twitter,
             'bio' => $request->bio,
-            'imageName' => $request->imageName,
-            'imagePath' => $request->imagePath,
+            'imageName' => $imageName,
+            'imagePath' => $imagePath,
         ]);
     }
+
+    public function uploadImage($file): array
+    {
+        $name = time() . '.' . $file->getClientOriginalExtension();
+
+        Storage::disk('public')->putFileAs('images', $file, $name);
+
+        $path = asset('storage/images/' . $name);
+
+        return [$path, $name];
+    }
 }
+

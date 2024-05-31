@@ -125,7 +125,12 @@ class UserController extends Controller
     }
     public function updateProfile(UpdateProfileRequest $request, UserService $userService)
     {
-        [$imageName, $imagePath] = $this->service->uploadImage($request->file('image'), 'users');
+        if ($request->image) {
+            [$imageName, $imagePath] = $this->service->uploadImage($request->file('image'), 'users');
+        } else {
+            $imageName = auth()->user()->imageName;
+            $imagePath = auth()->user()->imagePath;
+        }
 
         $userService->updateProfile($request, auth()->id(), $imageName, $imagePath);
 
