@@ -12,7 +12,7 @@
                 @if(auth()->check() && auth()->user()->roles->isNotEmpty())
                     {{ auth()->user()->roles->first()->name }}
                 @else
-                    دسترسی تعریف نشده است
+                    کاربر عادی
                 @endif
             </span>
         </div>
