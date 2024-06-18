@@ -43,7 +43,7 @@ class PostRepo
 
     public function getPostsByView()
     {
-        return $this->query()->whereStatus(Post::STATUS_ACTIVE)->get();
+        return $this->query()->whereStatus(Post::STATUS_ACTIVE)->orderByViews();
     }
 
     public function getPostsByUserId($user_id)
