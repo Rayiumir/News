@@ -24,7 +24,7 @@
     <div class="card border-0 rounded-4 mb-3">
         <div class="card-body">
             <i class="fa-duotone fa-comments mb-3"></i> نظرات کاربران
-            @foreach($latestComment as $row)
+            @foreach($homeRepo->getLatestComments() as $row)
                 <article class="card rounded-4 mb-2">
                     <div class="p-2">
                         <a href="{{$row->user->path()}}" class="text-decoration-none text-dark">

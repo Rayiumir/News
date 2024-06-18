@@ -3,6 +3,7 @@
 namespace modules\Rayium\Home\Repositories;
 
 use modules\Rayium\Category\Models\Category;
+use modules\Rayium\Comment\Models\Comment;
 use modules\Rayium\Post\Models\Post;
 use modules\Rayium\Role\Models\Permission;
 use modules\Rayium\User\Models\User;
@@ -39,4 +40,13 @@ class HomeRepo
         return Post::query()->whereStatus(Post::STATUS_ACTIVE)->whereType(Post::TYPE_NORMAL)->latest()->limit(10)->get();
     }
 
+    public function getPostsByView()
+    {
+        return Post::query()->whereStatus(Post::STATUS_ACTIVE)->orderByViews();
+    }
+
+    public function getLatestComments()
+    {
+        return Comment::query()->where('status', Comment::STATUS_ACTIVE)->latest();
+    }
 }

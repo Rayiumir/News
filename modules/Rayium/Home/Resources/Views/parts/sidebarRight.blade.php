@@ -44,7 +44,7 @@
         <div class="card-body">
             <i class="fa-duotone fa-user-group mb-3"></i> نوشته های پرطرفدار
 
-            @foreach($viewsPosts as $row)
+            @foreach($homeRepo->getPostsByView() as $row)
                 <article class="card rounded-4 mb-2">
                     <div class="p-2">
                         <a href="{{$row->path()}}" class="text-decoration-none text-dark">{{$row->title}} <span class="float-end"> <i class="fa-duotone fa-arrow-left"></i> </span></a>
