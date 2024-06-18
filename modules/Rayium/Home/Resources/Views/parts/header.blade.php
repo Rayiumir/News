@@ -12,9 +12,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home.index') }}"><i class="fa-duotone fa-home"></i></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">پیوند</a>
-                </li>
                 @foreach($categories as $row)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="{{$row->path()}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">

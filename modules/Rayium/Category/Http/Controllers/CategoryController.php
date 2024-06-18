@@ -25,7 +25,8 @@ class CategoryController extends Controller
     {
         $this->authorize('index', Category::class);
         $categories = $this->repo->index()->paginate(10);
-        return view('Category::index', compact('categories'));
+        $viewsPosts = $this->repo->getPostsByView()->latest()->limit(5)->get();
+        return view('Category::index', compact('categories', 'viewsPosts'));
     }
 
     public function create()

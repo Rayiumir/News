@@ -11,6 +11,7 @@
             <th scope="col">ایمیل</th>
             <th scope="col">دسترسی ها</th>
             <th scope="col">وضعیت تایید ایمیل</th>
+            <th scope="col">وضعیت کاربر</th>
             <th scope="col">تاریخ عضویت</th>
             <th scope="col">عملیات</th>
         </tr>
@@ -38,6 +39,11 @@
                         @else
                             <span class="badge bg-danger"><i class="fa-duotone fa-xmark"></i> تایید نشده </span>
                         @endif
+                    </td>
+                    <td class="text-center">
+                        <span class="badge text-bg-{{$row->last_seen >= now()->subMinute(2) ? 'success' : 'danger'}}">
+                            {{$row->last_seen >= now()->subMinute(2) ? 'آنلاین' : 'آفلاین'}}
+                        </span>
                     </td>
                     <td>{{$row->getCreateAtShamsi()}}</td>
                     <td>

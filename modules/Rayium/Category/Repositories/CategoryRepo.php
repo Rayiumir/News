@@ -3,6 +3,7 @@
 namespace modules\Rayium\Category\Repositories;
 
 use modules\Rayium\Category\Models\Category;
+use modules\Rayium\Post\Models\Post;
 
 class CategoryRepo
 {
@@ -48,5 +49,9 @@ class CategoryRepo
     public function findBySlug($slug)
     {
         return $this->query()->where('status', Category::STATUS_ACTIVE)->whereSlug($slug)->first();
+    }
+
+    public function getPostsByView(){
+        return Post::query()->whereStatus(Post::STATUS_ACTIVE)->orderByViews();
     }
 }

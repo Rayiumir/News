@@ -38,4 +38,5 @@ class HomeRepo
     {
         return Post::query()->whereStatus(Post::STATUS_ACTIVE)->whereType(Post::TYPE_NORMAL)->latest()->limit(10)->get();
     }
+
 }
