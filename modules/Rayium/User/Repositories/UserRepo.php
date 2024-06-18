@@ -9,7 +9,6 @@ class UserRepo
     public function index()
     {
         return User::orderBy('last_seen', 'DESC')->latest()->paginate(10);
-
     }
     public function findById($id)
     {

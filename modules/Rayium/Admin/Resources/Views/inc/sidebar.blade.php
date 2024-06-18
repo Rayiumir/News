@@ -7,7 +7,14 @@
         </figure>
         <div class="text-center">
             <span class="badge text-bg-primary rounded-5"><i class="fa-duotone fa-user"></i> {{auth()->user()->name}} </span>
-            <span class="badge text-bg-success rounded-5"><i class="fa-duotone fa-lock"></i> {{ auth()->user()->roles->first()->name }} </span>
+            <span class="badge text-bg-success rounded-5">
+                <i class="fa-duotone fa-lock"></i>
+                @if(auth()->check() && auth()->user()->roles->isNotEmpty())
+                    {{ auth()->user()->roles->first()->name }}
+                @else
+                    دسترسی تعریف نشده است
+                @endif
+            </span>
         </div>
         <div class="p-3">
             <div class="text-center">
