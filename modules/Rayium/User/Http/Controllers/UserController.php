@@ -27,9 +27,7 @@ class UserController extends Controller
     {
         $this->authorize('index', User::class);
         $users = $this->repo->index();
-        $role = auth()->user();
-        $roles = optional($role->roles->first())->name ?? 'عادی';
-        return view('User::index', compact('users', 'roles'));
+        return view('User::index', compact('users'));
     }
 
     public function create()
