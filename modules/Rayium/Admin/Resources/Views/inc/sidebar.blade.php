@@ -9,11 +9,7 @@
             <span class="badge text-bg-primary rounded-5"><i class="fa-duotone fa-user"></i> {{auth()->user()->name}} </span>
             <span class="badge text-bg-success rounded-5">
                 <i class="fa-duotone fa-lock"></i>
-                @if(auth()->check() && auth()->user()->roles->isNotEmpty())
-                    {{ auth()->user()->roles->first()->name }}
-                @else
-                    کاربر عادی
-                @endif
+                {{auth()->user()->roles->first()->name ?? 'کاربر عادی'}}
             </span>
         </div>
         <div class="p-3">
