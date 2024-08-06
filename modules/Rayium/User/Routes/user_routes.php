@@ -12,7 +12,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], static function ($rou
     $router->patch('/profile', [\modules\Rayium\User\Http\Controllers\UserController::class, 'updateProfile'])->name('update.profile')->middleware('auth');
 
     $router->get('send/email', static function () {
-        dispatch(new \modules\Rayium\User\Jobs\SendEmailToUserJob('rayiumir@gmail.com'));
+        dispatch(new \modules\Rayium\User\Jobs\SendEmailToUserJob(''));
         return 'send';
     });
 
